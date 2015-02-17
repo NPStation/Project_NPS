@@ -1,0 +1,11 @@
+from api_v_1.models import API_Device
+from api_v_1.serializers import API_DeviceSerializer
+
+snippet = API_Device(code='foo = "bar"\n')
+snippet.save()
+
+snippet = API_Device(code='print "hello, world"\n')
+snippet.save()
+
+serializer = API_DeviceSerializer(snippet)
+serializer.data

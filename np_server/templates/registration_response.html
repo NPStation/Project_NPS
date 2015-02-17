@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title>Admin Password Center</title>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+
+		<link rel="stylesheet" href="/static/styles/bootstrap.css" media="screen" />
+		<link rel="stylesheet" href="/static/styles/style.css" media="screen" />
+	</head>
+<body>
+	<h1 style="background-color:#619ec2;" >Registration response</h1>
+<div class="row">
+	<div class="span12">
+    	<!-- Black Menu -->
+		<ul id="menu" class="black">
+		</ul>
+		</div>
+	<div class="span16">
+	{% block content %}
+    <div class="row">
+      <div class="span4">
+		<p>Yahoo!</p>
+	  </div>
+      <div class="span8">
+	  {% if success != None %}
+	  <p>{{ success}} поздравляем вас с регистрацией!</p>
+	  {% endif %}
+	  {% if fail_email != None %}
+	  <p>{{ fail_email }} - ваш email уже зарегистрирован в системе</p>
+	  {% endif %}
+	  {% if fail_name != None %}
+	  <p>{{ fail_name }} - пользователь с таким логином уже зарегистрирован</p>
+	  {% endif %}
+	  </div>
+	  <div class="span4">
+		<p><a href="/">На главную</a></p>
+    </div>
+	{% endblock %}
+  </div>
+</div>
+
+</body>
+</html>

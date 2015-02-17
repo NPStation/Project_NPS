@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Never Paranoid Station</title>
+		
+		<link href='http://fonts.googleapis.com/css?family=Roboto&subset=latin,cyrillic-ext' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="/static/styles/bootstrap.min.css"/>
+		<link rel="stylesheet" href="/static/styles/bootstrap.css"/>
+		<link rel="stylesheet" href="/static/styles/bootstrap-theme.min.css"/>
+		<script type="text/javascript" src="/static/scripts/jquery-1.11.0.min.js"></script>
+		<link href="http://bootstrap-ru.com/204/assets/css/bootstrap-responsive.css" rel="stylesheet">
+		<style type="text/css">body{padding-top:60px;padding-bottom:40px;}.sidebar-nav{padding:9px 0;}</style>
+		<script type="text/javascript" src="/static/scripts/bootstrap.js"></script>
+	</head>
+<body>
+	<div class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container-fluid">
+				<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				</a>
+				<a class="brand" href="#">Never Paranoid Station</a>
+				<div class="nav-collapse">
+					<ul class="nav">
+						<li class="active"><a href="/">Home</a></li>
+						<li><a href="/about/">About</a></li>
+						<li><a href="/test_user/">API</a></li>
+						<li><a href="/weblog/">Blogs</a></li>
+		<!-- 			<li><a href="#">rus/eng</a></li> -->
+					</ul>
+				</div> 
+			</div>
+		</div>
+	</div>
+
+{% block content %}
+
+
+    <!-- Page Content -->
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-3 col-sm-4 sidebar">
+                <ul class="nav nav-stacked nav-pills">
+                    <li><a href="/">Home</a>
+                    </li>
+                    <li><a href="about.html">About</a>
+                    </li>
+                    <li><a href="services.html">API</a>
+                    </li>
+                    <li class="disabled"><a href="#">Blog</a>
+                    </li>
+                    <li><a href="full-width.html">Full Width Page</a>
+                    </li>
+                    <li class="active"><a href="sidebar.html">Sidebar Page</a>
+                    </li>
+                    <li><a href="faq.html">FAQ</a>
+                    </li>
+                    <li><a href="404.html">404</a>
+                    </li>
+                    <li><a href="pricing.html">Pricing Table</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="col-md-9 col-sm-8">
+                <h1 class="page-header">Поиск и трекинг мобильных устройств 
+                    <small>Документация</small>
+                </h1>
+                <ol class="breadcrumb">
+                    <li><a href="/">Главная</a>
+                    </li>
+                    <li class="active">API</li>
+                </ol>
+				<h2>Введение</h2>
+				<h3>Ключевые идеи.</h3>
+					<p>Проект по поиску и трекингу мобильных устройств, начал развиваться с идеи того что в настоящем существует проблема</p>
+					<p>потерянных устройств. Существующие решения не плохи, но не дают хорошего решения.</p>
+					<p>Мы поставили себе цель создания общего API, более универсального, для любых типов мобильных устройств: Телефоны, Планшеты, Ноутбуки, Флеш карты и т.д.</p>
+					<p>Акцент делается на слове "универсальный". Что мы понимаем под данным словом, это не просто решение для одного типа устройства</p>
+					<p>по большему счету это глобальная проблема нашего времени. Хотя это кажется довольно утопической мыслью, мы решили развивать данное направление.</p>
+					<p>Второе направление которое мы развиваем поиск мобильных устройств. Существующие решения не позволяют найти свой телефон в быстрые сроки.</p>
+					<p>Многие вещи зависят от обстоятельств благодаря которым можно найти устройства. Органы правоохранительной власти не всегда способны во время отреагировать</p>
+					<p>на вашу просьбу, или иногда это просто становится затруднительным по различным причинам или обстоятельствам.</p>
+					<p>Иногда вы просто можете оставить ваше устройство где-нибудь в ванной, а иногда в общественном транспорте. В любом случае очень хочется иметь инструмент</p>
+					<p>приближающий нас к тому чтобы разрешить проблему в ближайшее время. Это довольно раздражает, не так ли?</p>
+				<h3>Наши возможности</h3>
+					<p>GET для получения и поиска данных</p>
+					<p>POST для добавления данных</p>
+					<p>PUT для обновления данных</p>
+					<p>DELETE для удаления данных</p>
+				<h3>Определение API</h3>
+					<p>Наше API содержит следующие методы:</p>
+					<p>Метод | URL | Действие</p>
+					<p>GET	/api_v_1/	Возвращает все ваши устройства</p>
+					<p>GET	/api_v_1/device/2	Возвращает данные по устройству по его ключу (api key)</p>
+					<p>POST	/api_v_1/device	Добавляет устройство</p>
+					<p>PUT	/api_v_1/device/2	Обновляет местоположение девайса по его ключу</p>
+					<p>DELETE	/api/device/2	Удаляет местоположение девайса по его ключу</p>
+				<h3>Пример ответа</h3><span>GET	/api_v_1/</span>
+				<p>[</p>
+					<p>{</p>
+					<p>id: 1,</p>
+					<p>title: "",</p>
+					<p>model: "",</p>
+					<p>imei: "",</p>
+					<p>phone_number: "",</p>
+					<p>mac: "",</p>
+					<p>usbidcode: "",</p>
+					<p>latitude: "",</p>
+					<p>longitude: "",</p>
+					<p>height: "",</p>
+					<p>cell_id: false,</p>
+					<p>ip_info: "",</p>
+					<p>wifi_info: "",</p>
+					<p>battery_info: "",</p>
+					<p>code: "foo = "bar" ",</p>
+					<p>style: "friendly"</p>
+					<p>},</p>
+				<p>]</p>
+            </div>
+
+        </div>
+        <!-- /.row -->
+
+    </div>
+    <!-- /.container -->
+
+    <div class="container">
+
+        <hr>
+
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; Never Paranoid Station 2014</p>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+    <!-- /.container -->
+
+{% endblock %}
+
+</body>
+</html>

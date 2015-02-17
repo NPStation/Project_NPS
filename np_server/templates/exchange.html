@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>Биржа задач/Биржа хаоса</title>
+</head>
+<body>
+	<form action="" method="post">
+		<label for="">Статус</label><input type="text" name="status" />
+		<label for="">Задача</label><input type="text" name="task" />
+		<label for="">Срок</label><input type="text" name="term" />
+		<label for="">Стоимость</label><input type="text" name="cost" />
+		<input type="submit" value="Поделиться" />
+	</form>
+	{% block content %}
+		<form action="" method="post">
+			<table border="2">
+				<tr>
+					<td>Статус</td>
+					<td>Задача</td>
+					<td>Срок</td>
+					<td>Цена вопроса</td>
+					<td>Карма</td>
+					<td>Оценка</td>
+					<td>Покупка</td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td>
+						<input type="text" name="cost" />
+						<input type="submit" value="Поднять цену" />
+					</td>
+					<td><input type="submit" value="Купить" /></td>
+				</tr>
+			</table>
+		</form>
+	{% endblock %}
+</body>
+</html>

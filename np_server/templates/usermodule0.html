@@ -1,0 +1,548 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title>Never Paranoid Station</title>
+		
+		<link rel="stylesheet" href="/static/styles/style.css" media="screen" />
+		<script src="http://api-maps.yandex.ru/2.0/?load=package.full&lang=ru-RU" type="text/javascript"></script>
+		<script src="http://yandex.st/jquery/1.6.4/jquery.min.js" type="text/javascript"></script>
+
+		<style type="text/css">
+			@-webkit-keyframes stripes1 {
+			  from {
+				background-position: 0 0;
+			  }
+			  to {
+				background-position: 56px 0;
+			  }
+			}
+
+			@-webkit-keyframes stripes2 {
+			  from {
+				background-position: 0 0;
+			  }
+			  to {
+				background-position: -56px 0;
+			  }
+			}
+
+			body {
+			background:silver;
+			}
+
+			#switcher {
+				margin:50px;    
+				width:86px;
+				height:24px;  
+				background-color:silver;
+				position:relative;
+				overflow:hidden;
+				white-space:nowrap;            
+				display: inline-block;
+
+				border-radius:100px;                
+				padding:2px;
+				box-shadow: inset 0px 3px 10px 0px rgba(0, 0, 0, 0.4), 0px 3px 10px 0px rgba(255, 255, 255, 0.4);
+				font-family:sans-serif;
+				font-size:14px;
+				-webkit-transition: all 0.3s ease-in-out;
+				background-size: 28px 28px;
+				
+			}
+
+			#rail {
+					position:absolute;
+					top:2px;
+					left:18px;
+					-webkit-transition: all 0.3s ease-in-out;
+					cursor: pointer;
+			}
+
+			#state1 {
+					display: inline-block;
+					height:24px;
+					position:relative;
+					top:-7px;
+					left:-4px;        
+					padding-left: 5px; 
+					color:hsl(30,20%,90%);;            
+				
+			}
+
+			#state2 {
+					display: inline-block;
+					height:24px;
+					position:relative;
+					top:-7px;
+					left:13px;                
+					color:hsl(190,20%,90%);    
+
+			}
+
+			#slider {
+					display: inline-block;
+					height:24px;
+					width:24px;
+					position:relative;
+					border-radius:100px;  
+
+			background-color:#ccc;
+					box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.2), inset 0px 1px 1px 1px rgba(255, 255, 255, 0.7);
+			}
+
+			#ch{
+					display:none;
+			}
+
+			#ch:checked + #switcher #rail{
+					left:-44px;
+			}
+
+
+			#ch:not(:checked) + #switcher {
+					background-color: hsl(30,20%,50%);
+			}
+
+			#ch:checked + #switcher {
+					background-color: hsl(190,20%,50%);
+			}
+
+			#ch:checked + #switcher:hover {
+			background-image: -webkit-gradient(linear, left top, right bottom, 
+					color-stop(0%,rgba(255,255,255,0)), 
+					color-stop(25%,rgba(255,255,255,0)), 
+					color-stop(25%,rgba(255,255,255,.1)), 
+					color-stop(50%,rgba(255,255,255,.1)), 
+					color-stop(50%,rgba(255,255,255,0)), 
+					color-stop(75%,rgba(255,255,255,0)), 
+					color-stop(75%,rgba(255,255,255,.1)), 
+					color-stop(100%,rgba(255,255,255,.1)));
+			-webkit-animation: stripes1 2s linear infinite;    
+			}
+
+			#ch:not(:checked) + #switcher:hover {
+			background-image: -webkit-gradient(linear, left top, right bottom, 
+					color-stop(0%,rgba(255,255,255,0)), 
+					color-stop(25%,rgba(255,255,255,0)), 
+					color-stop(25%,rgba(255,255,255,.1)), 
+					color-stop(50%,rgba(255,255,255,.1)), 
+					color-stop(50%,rgba(255,255,255,0)), 
+					color-stop(75%,rgba(255,255,255,0)), 
+					color-stop(75%,rgba(255,255,255,.1)), 
+					color-stop(100%,rgba(255,255,255,.1)));
+			-webkit-animation: stripes2 2s linear infinite;    
+			}
+		</style>
+
+	</head>
+<body>
+	<h1 style="background-color:#619ec2;" >NPStation</h1>
+	<p id="logout"><a href="/accounts/logout/">Выход</a></p>
+
+	{% block content %}
+ 
+ <table id="structure">
+		<tr>
+			<td>
+				<h1>Список устройств</h1>
+			</td>
+			<td>
+				
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<table>
+					<tr>
+						<td>
+							Устройство
+						</td>
+						<td>
+							Статус
+						</td>
+					</tr>
+					<tr>
+						{% if have_device != None %}
+						<td>
+							<div id="device_list">
+							{{ have_device.model }}
+								
+							</div>
+						</td>
+						<td>
+							{{ have_device.search_status }}
+							{{ have_device.monitor_status }}							
+						</td>
+						{% endif %}
+					</tr>
+					<tr>
+						<td colspan="3">
+							<input type="submit" name="add_device" value="Добавить устройство" />
+						</td>
+					</tr>
+				</table>
+
+				
+			</td>
+			<td id="magic_location">
+				
+				
+				<div class="korpus">
+				
+				    <a href="/accounts/login/monitoring/">Панель мониторинга</a>
+					<a href="/accounts/login/admin_panel/">Панель администрирования</a>
+					<a href="/accounts/login/device_adding/">Добавить устройство</a>
+					<a href="/accounts/login/api/">API</a>
+					
+					<div>
+					{% if monitoring_go != None %}
+					
+						<div id="monitoring">
+						
+							<table id="monitor">
+								<tr>
+									<td rowspan="2">
+										<h1>YandexКарты</h1>
+										<script type="text/javascript">
+										ymaps.ready(init);
+
+										function init () {
+											var myMap = new ymaps.Map('map', {
+													center: [56.879, 60.624],
+													zoom: 10
+												}),
+												myPlacemark = new ymaps.Placemark([56.8709679, 60.6099892], {
+													// Чтобы балун и хинт открывались на метке, необходимо задать ей определенные свойства.
+													balloonContentHeader: "Балун метки",
+													balloonContentBody: "Содержимое <em>балуна</em> метки",
+													balloonContentFooter: "Подвал",
+													hintContent: "Хинт метки"
+												});
+
+											myMap.geoObjects.add(myPlacemark);
+
+											// Для добавления элемента управления на карту
+											// используется поле map.controls.
+											// Это поле содержит ссылку на экземпляр класса map.control.Manager.
+											
+											// Добавление элемента в коллекцию производится
+											// с помощью метода add.
+
+											// В метод add можно передать строковый идентификатор
+											// элемента управления и его параметры.
+											myMap.controls
+												// Кнопка изменения масштаба.
+												.add('zoomControl', { left: 5, top: 5 })
+												// Список типов карты
+												.add('typeSelector')
+												// Стандартный набор кнопок
+												.add('mapTools', { left: 35, top: 5 });
+
+											// Также в метод add можно передать экземпляр класса элемента управления.
+											// Например, панель управления пробками.
+											var trafficControl = new ymaps.control.TrafficControl();
+											myMap.controls
+												.add(trafficControl)
+												// В конструкторе элемента управления можно задавать расширенные
+												// параметры, например, тип карты в обзорной карте.
+												.add(new ymaps.control.MiniMap({
+													type: 'yandex#publicMap'
+												}));
+											
+											/*
+											// Удаление элементов управления производится через метод remove.
+											myMap.controls
+												.remove(trafficControl)
+												.remove('mapTools');
+											*/
+										}
+										</script>
+									<div id="map" style="width:400px; height:300px"></div>
+									</td>
+									<td>
+										<h3>Консоль</h3>
+										{% if api_key_view != None %}
+											<p>>>> {{ api_key_view }}</p>
+										{% elif console != None %}
+											<p>>>> {{ console }}</p>
+										{% else %}
+											<p>>>> </p>
+										{% endif %}
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<h3>Отчеты</h3>
+										<p>Name,Model,Wi-Fi Zone...</p>
+									</td>
+								</tr>
+							</table>
+						
+						</div>
+						
+					{% endif %}
+					</div>
+					
+					<div>
+					{% if admin_panel_go != None %}
+					
+					<div id="admin_panel">
+						<table id="admin">
+							<tr>
+								<td>
+									<h2>Настройка выбора действий</h2>
+									<form action="/accounts/login/base/actions/" method="post">
+										<table>
+											<tr>
+												<td><h3>Тревога</h3></td>
+												<td><input type="checkbox" name="alarm" value='false' class="info_request"></td>
+											</tr>
+											<tr>
+												<td><h3>Предупреждение</h3></td>
+												<td><input type="checkbox" name="warning" value='true' class="info_request"></td>
+											</tr>
+											<tr>
+												<td><h3>Блокировка</h3></td>
+												<td><input type="checkbox" name="blocking" value='true' class="info_request"></td>
+											</tr>
+											<tr>
+												<td><h3>Удаление данных веб-браузеров</h3></td>
+												<td><input type="checkbox" name="privacy" class="info_request"></td>
+											</tr>
+											<tr>
+												<td colspan="2"><h2>СМС команды</h2></td>
+											</tr>
+											<tr>
+												<td><h3>Запрос о статусе устройства</h3></td>
+												<td><input type="checkbox" name="status" class="info_request"></td>
+											</tr>
+											<tr>
+												<td><h3>Звуковой сигнал в течении 5 секунд</h3></td>
+												<td><input type="checkbox" name="alarm_5" class="info_request"></td>
+											</tr>
+											<tr>
+												<td><h3>Всплывающее сообщение на устройстве.</h3></td>
+												<td><input type="checkbox" name="message_for" class="info_request"></td>
+											</tr>
+											<tr>
+												<td><h3>Включение звука на устройстве</h3></td>
+												<td><input type="checkbox" name="sound_on" class="info_request"></td>
+											</tr>
+											<tr>
+												<td><h3>Выключение звука на устройстве</h3></td>
+												<td><input type="checkbox" name="sound_off" class="info_request"></td>
+											</tr>
+											<tr>
+												<td><h3>Озвученное сообщение на максимальной громкости</h3></td>
+												<td><input type="checkbox" name="speak" class="info_request"></td>
+											</tr>
+											<tr>
+												<td><h3>Включение мобильного интернета</h3></td>
+												<td><input type="checkbox" name="data_start" class="info_request"></td>
+											</tr>
+											<tr>
+												<td><h3>Выключение мобильного интернета</h3></td>
+												<td><input type="checkbox" name="data_stop" class="info_request"></td>
+											</tr>
+											<tr>
+												<td><h3>Включение WiFi</h3></td>
+												<td><input type="checkbox" name="wifi_start" class="info_request"></td>
+											</tr>
+											<tr>
+												<td><h3>Выключение WiFi</h3></td>
+												<td><input type="checkbox" name="wifi_stop" class="info_request"></td>
+											</tr>
+											<tr>
+												<td><h3>Инициирование исходящего звонка с устройства на указанный номер 12345678</h3></td>
+												<td><input type="checkbox" name="call" class="info_request"></td>
+											</tr>
+											<tr>
+												<td><h3>Сброс текущего вызова на телефоне</h3></td>
+												<td><input type="checkbox" name="hangup" class="info_request"></td>
+											</tr>
+											<tr>
+												<td><h3>Запись звука через микрофон устройства</h3></td>
+												<td><input type="checkbox" name="recordsound" class="info_request"></td>
+											</tr>
+											<tr>
+												<td><h3>Копирование существующей APN и установка ее по умолчанию</h3></td>
+												<td><input type="checkbox" name="apn_copy" class="info_request"></td>
+											</tr>
+											<tr>
+												<td><h3>Удаление копии APN и возврат предыдущей установки по умолчанию</h3></td>
+												<td><input type="checkbox" name="apn_remove" class="info_request"></td>
+											</tr>
+											<tr>
+												<td><h3>Активация копии APN</h3></td>
+												<td><input type="checkbox" name="apn_enable" class="info_request"></td>
+											</tr>
+											<tr>
+												<td><h3>Де - активация копии APN</h3></td>
+												<td><input type="checkbox" name="apn_disable" class="info_request"></td>
+											</tr>
+											<tr>
+												<td><h3>Определение положения устройства по GPS и отправка координат по SMS</h3></td>
+												<td><input type="checkbox" name="gps_on" class="info_request"></td>
+											</tr>
+											<tr>
+												<td><h3>Блокировка телефона с PIN кодом 9876</h3></td>
+												<td><input type="checkbox" name="block" class="info_request"></td>
+											</tr>
+											<tr>
+												<td><h3>Разблокировка телефона с PIN кодом</h3></td>
+												<td><input type="checkbox" name="unblock" class="info_request"></td>
+											</tr>
+											<tr>
+												<td><h3>Запуск приложения</h3></td>
+												<td><input type="checkbox" name="startapp" class="info_request"></td>
+											</tr>
+											<tr>
+												<td><h3>Очистка карты памяти SD-Card </h3></td>
+												<td><input type="checkbox" name="erasesdcard" class="info_request"></td>
+											</tr>
+											<tr>
+												<td><h3>Очистка телефона ПОЛНОСТЬЮ!</h3></td>
+												<td><input type="checkbox" name="wipe" class="info_request"></td>
+											</tr>
+											<tr>
+												<td>
+													<input type="submit" value="Сохранить" style="width: 200px;" />
+												</td>
+												<td><br /><br /></td>
+											</tr>
+										</table>
+									</form>
+								</td>
+								<td>
+									<h2>Сбор информации</h2>
+									<form action="/accounts/login/base/where_device_data/" method="post">
+										<table>
+											<tr>
+												<td><h3>Местоположение</h3></td>
+												<td><input type="checkbox" name="geo_info" value='true' class="info_request"></td>
+											</tr>
+											<tr>
+												<td><h3>Сеть</h3></td>
+												<td><input type="checkbox" name="net_info" value='true' class="info_request"></td>
+											</tr>
+											<tr>
+												<td><h3>Информация о WiFi</h3></td>
+												<td><input type="checkbox" name="wifi_info" value='true' class="info_request"></td>
+											</tr>
+											<tr>
+												<td><h3>Веб-камера</h3></td>
+												<td><input type="checkbox" name="webcam" value='test' class="info_request"></td>
+											</tr>
+											<tr>
+												<td>
+													<input type="submit" value="Сохранить" style="width: 200px;" />
+												</td>
+												<td><br /><br /></td>
+											</tr>
+										</table>
+									</form>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<h2>Отчеты</h2>
+									<form action="/accounts/login/base/reports/" method="post">
+										<table>
+											<tr>
+												<td><h3>Все</h3></td>
+												<td><input type="checkbox" name="all" value='true' class="info_request"></td>
+											</tr>
+											<tr>
+												<td>
+													<input type="submit" value="Сохранить" style="width: 200px;" />
+												</td>
+												<td><br /><br /></td>
+											</tr>
+										</table>
+									</form>
+								</td>
+								<td>
+									<h2>Устройство потеряно(OFF/ON)</h2>
+									<label for="ch">
+										<input type="checkbox" id="ch">       
+										<div id="switcher">
+											<div id="rail">
+												<div id="state1">Выкл.</div>
+												<div id="slider"></div>
+												<div id="state2">Вкл.</div>
+											</div>
+										</div>
+									</label>
+								</td>
+							</tr>
+						</table>
+					
+					</div>
+					
+					{% endif %}
+					</div>
+					
+					<div>
+					{% if device_adding_go != None %}
+					
+					<div id="device_adding">
+						<table id="device_os">
+							<tr>
+								<td>Notebook/Ultrabook/Netbook</td>
+								<td>Flesh card/USB/MS/SD</td>
+								<td>PC</td>
+							</tr>
+							<tr>
+								<td>Photo/Video Camera</td>
+								<td>Iphone/IPAD</td>
+								<td>Android</td>
+							</tr>
+							<tr>
+								<td>BlackBerry</td>
+								<td>Symbian</td>
+								<td>Windows Mobile</td>
+							</tr>
+						</table>
+					</div>
+					
+					{% endif %}
+					</div>
+					<div>
+					{% if api_go != None %}
+					
+					<div id="API">
+						<h1>API</h1>
+						Авторизация
+							-login
+							-name(device base id)
+							-password
+						Input(on client)
+							Actions
+							Research
+						Output(on client)
+							Device info
+							CellId
+						<form action="/accounts/login/API_v1/" method="post" >
+							<h3>Ваш личный API ключ</h3>
+							<input type="text" name="api_key_view" value="test" />
+							<input type="submit" value="Получить" />
+						</form>
+					</div>
+					
+					{% endif %}
+					</div>
+					<div>
+										
+					
+					</div>
+				</div>
+
+			</td>
+		</tr>
+	</table>
+ 
+	{% endblock %}
+
+
+</body>
+</html>

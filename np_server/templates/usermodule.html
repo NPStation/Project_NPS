@@ -1,0 +1,387 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+	<head>
+		<meta charset="UTF-8">
+		<title>Never Paranoid Station</title>
+		
+		<link rel="stylesheet" href="/static/styles/bootstrap.min.css"/>
+		<link rel="stylesheet" href="/static/styles/bootstrap.css"/>
+		<link rel="stylesheet" href="/static/styles/bootstrap-theme.min.css"/>
+		<script type="text/javascript" src="/static/scripts/jquery-1.11.0.min.js"></script>
+		<link href="http://bootstrap-ru.com/204/assets/css/bootstrap-responsive.css" rel="stylesheet">
+		<style type="text/css">body{padding-top:60px;padding-bottom:40px;}.sidebar-nav{padding:9px 0;}</style>
+		<script type="text/javascript" src="/static/scripts/bootstrap.js"></script>
+		<script src="http://api-maps.yandex.ru/2.0/?load=package.full&lang=ru-RU" type="text/javascript"></script>
+		<script src="http://yandex.st/jquery/1.6.4/jquery.min.js" type="text/javascript"></script>
+	</head>
+<body>
+	<div class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container-fluid">
+				<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				</a>
+				<a class="brand" href="#">Never Paranoid Station</a>
+				<div class="btn-group pull-right">
+					<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+						<i class="icon-user"></i> Username
+						<span class="caret"></span>
+					</a>
+					<ul class="dropdown-menu">
+					<li><a href="#">Profile</a></li>
+					<li class="divider"></li>
+					<li><a href="/accounts/logout/">Sign Out</a></li>
+					</ul>
+				</div>
+				<div class="nav-collapse">
+					<ul class="nav">
+						<li class="active"><a href="/">Home</a></li>
+						<li><a href="/about/">About</a></li>
+						<li><a href="/api_v_1_doc/">API</a></li>
+						<li><a href="/weblog/">Blogs</a></li>
+		<!-- 			<li><a href="#">rus/eng</a></li> -->
+					</ul>
+				</div> 
+			</div>
+		</div>
+	</div>
+	
+	<div class="container-fluid">
+	<div class="row-fluid">
+		<div class="span3">
+		<div class="well sidebar-nav">
+			<ul class="nav nav-list">
+				<li class="nav-header">Device List</li>
+				<form action="/accounts/login/update_device/" action="post">
+				{% for dev_to in all_devices %}
+					<li><input type="submit" name="modelDevice" value={{ dev_to.model }} /></li>
+				{% endfor %}
+				</form>
+			</ul>
+		</div> 
+		</div> 
+	
+		<div class="span9">
+			<!-- Nav tabs -->
+			<div id="content">
+				<ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
+					<li class="active"><a href="#red" data-toggle="tab">Monitor Panel</a></li>
+					<li><a href="#orange" data-toggle="tab">Search Panel</a></li>
+					<li><a href="#yellow" data-toggle="tab">Help</a></li>
+					<li><a href="#green" data-toggle="tab">Downloads</a></li>
+				</ul>
+				<div id="my-tab-content" class="tab-content">
+					<div class="tab-pane active" id="red">
+
+						<div class="row-fluid">
+							<div class="span8">
+							<center>
+								<h1>Yandex Maps</h1>
+								{% if my_way != None %}
+								{% endif %}
+								<script type="text/javascript">
+									ymaps.ready(init);
+
+									function init () {
+										var myMap = new ymaps.Map('map', {
+												center: ["{{ latitude_one }}", "{{ longitude_one }}"],
+												zoom: 10
+											}),
+											myPlacemark = new ymaps.Placemark(["{{ latitude_one }}", "{{ longitude_one }}"], {
+												// Чтобы балун и хинт открывались на метке, необходимо задать ей определенные свойства.
+												balloonContentHeader: "Балун метки",
+												balloonContentBody: "Содержимое <em>балуна</em> метки",
+												balloonContentFooter: "Подвал",
+												hintContent: "Хинт метки"
+											});
+
+										myMap.geoObjects.add(myPlacemark);
+
+										// Для добавления элемента управления на карту
+										// используется поле map.controls.
+										// Это поле содержит ссылку на экземпляр класса map.control.Manager.
+										
+										// Добавление элемента в коллекцию производится
+										// с помощью метода add.
+
+										// В метод add можно передать строковый идентификатор
+										// элемента управления и его параметры.
+										myMap.controls
+											// Кнопка изменения масштаба.
+											.add('zoomControl', { left: 5, top: 5 })
+											// Список типов карты
+											.add('typeSelector')
+											// Стандартный набор кнопок
+											.add('mapTools', { left: 35, top: 5 });
+
+										// Также в метод add можно передать экземпляр класса элемента управления.
+										// Например, панель управления пробками.
+										var trafficControl = new ymaps.control.TrafficControl();
+										myMap.controls
+											.add(trafficControl)
+											// В конструкторе элемента управления можно задавать расширенные
+											// параметры, например, тип карты в обзорной карте.
+											.add(new ymaps.control.MiniMap({
+												type: 'yandex#publicMap'
+											}));
+										
+										/*
+										// Удаление элементов управления производится через метод remove.
+										myMap.controls
+											.remove(trafficControl)
+											.remove('mapTools');
+										*/
+									}
+									</script>
+
+									<div id="map" style="width:100%; height:500px"></div>
+									{% if on_the_map != None %}
+									{% endif %}
+									
+								</center>
+							</div> 
+
+						</div> 
+					</div>
+					<div class="tab-pane" id="orange">
+						<h2>Actions</h2>
+						<form action="/accounts/login/base/actions/" method="post">
+							<table>
+								<tr>
+									<td><h3>Тревога</h3></td>
+									<td><input type="checkbox" name="alarm" value='false' class="info_request"></td>
+								</tr>
+								<tr>
+									<td><h3>Предупреждение</h3></td>
+									<td><input type="checkbox" name="warning" value='true' class="info_request"></td>
+								</tr>
+								<tr>
+									<td><h3>Блокировка</h3></td>
+									<td><input type="checkbox" name="blocking" value='true' class="info_request"></td>
+								</tr>
+								<tr>
+									<td><h3>Удаление данных веб-браузеров</h3></td>
+									<td><input type="checkbox" name="privacy" class="info_request"></td>
+								</tr>
+								<tr>
+									<td colspan="2"><h2>СМС команды</h2></td>
+								</tr>
+								<tr>
+									<td><h3>Запрос о статусе устройства</h3></td>
+									<td><input type="checkbox" name="status" class="info_request"></td>
+								</tr>
+								<tr>
+									<td><h3>Звуковой сигнал в течении 5 секунд</h3></td>
+									<td><input type="checkbox" name="alarm_5" class="info_request"></td>
+								</tr>
+								<tr>
+									<td><h3>Всплывающее сообщение на устройстве.</h3></td>
+									<td><input type="checkbox" name="message_for" class="info_request"></td>
+								</tr>
+								<tr>
+									<td><h3>Включение звука на устройстве</h3></td>
+									<td><input type="checkbox" name="sound_on" class="info_request"></td>
+								</tr>
+								<tr>
+									<td><h3>Выключение звука на устройстве</h3></td>
+									<td><input type="checkbox" name="sound_off" class="info_request"></td>
+								</tr>
+								<tr>
+									<td><h3>Озвученное сообщение на максимальной громкости</h3></td>
+									<td><input type="checkbox" name="speak" class="info_request"></td>
+								</tr>
+								<tr>
+									<td><h3>Включение мобильного интернета</h3></td>
+									<td><input type="checkbox" name="data_start" class="info_request"></td>
+								</tr>
+								<tr>
+									<td><h3>Выключение мобильного интернета</h3></td>
+									<td><input type="checkbox" name="data_stop" class="info_request"></td>
+								</tr>
+								<tr>
+									<td><h3>Включение WiFi</h3></td>
+									<td><input type="checkbox" name="wifi_start" class="info_request"></td>
+								</tr>
+								<tr>
+									<td><h3>Выключение WiFi</h3></td>
+									<td><input type="checkbox" name="wifi_stop" class="info_request"></td>
+								</tr>
+								<tr>
+									<td><h3>Инициирование исходящего звонка с устройства на указанный номер 12345678</h3></td>
+									<td><input type="checkbox" name="call" class="info_request"></td>
+								</tr>
+								<tr>
+									<td><h3>Сброс текущего вызова на телефоне</h3></td>
+									<td><input type="checkbox" name="hangup" class="info_request"></td>
+								</tr>
+								<tr>
+									<td><h3>Запись звука через микрофон устройства</h3></td>
+									<td><input type="checkbox" name="recordsound" class="info_request"></td>
+								</tr>
+								<tr>
+									<td><h3>Копирование существующей APN и установка ее по умолчанию</h3></td>
+									<td><input type="checkbox" name="apn_copy" class="info_request"></td>
+								</tr>
+								<tr>
+									<td><h3>Удаление копии APN и возврат предыдущей установки по умолчанию</h3></td>
+									<td><input type="checkbox" name="apn_remove" class="info_request"></td>
+								</tr>
+								<tr>
+									<td><h3>Активация копии APN</h3></td>
+									<td><input type="checkbox" name="apn_enable" class="info_request"></td>
+								</tr>
+								<tr>
+									<td><h3>Де - активация копии APN</h3></td>
+									<td><input type="checkbox" name="apn_disable" class="info_request"></td>
+								</tr>
+								<tr>
+									<td><h3>Определение положения устройства по GPS и отправка координат по SMS</h3></td>
+									<td><input type="checkbox" name="gps_on" class="info_request"></td>
+								</tr>
+								<tr>
+									<td><h3>Блокировка телефона с PIN кодом 9876</h3></td>
+									<td><input type="checkbox" name="block" class="info_request"></td>
+								</tr>
+								<tr>
+									<td><h3>Разблокировка телефона с PIN кодом</h3></td>
+									<td><input type="checkbox" name="unblock" class="info_request"></td>
+								</tr>
+								<tr>
+									<td><h3>Запуск приложения</h3></td>
+									<td><input type="checkbox" name="startapp" class="info_request"></td>
+								</tr>
+								<tr>
+									<td><h3>Очистка карты памяти SD-Card </h3></td>
+									<td><input type="checkbox" name="erasesdcard" class="info_request"></td>
+								</tr>
+								<tr>
+									<td><h3>Очистка телефона ПОЛНОСТЬЮ!</h3></td>
+									<td><input type="checkbox" name="wipe" class="info_request"></td>
+								</tr>
+								<tr>
+									<td>
+										<input type="submit" value="Сохранить" style="width: 200px;" />
+									</td>
+									<td><br /><br /></td>
+								</tr>
+							</table>
+						</form>
+						<h2>Сбор информации</h2>
+						<form action="/accounts/login/base/where_device_data/" method="post">
+							<table>
+								<tr>
+									<td><h3>Местоположение</h3></td>
+									<td><input type="checkbox" name="geo_info" value='true' class="info_request"></td>
+								</tr>
+								<tr>
+									<td><h3>Сеть</h3></td>
+									<td><input type="checkbox" name="net_info" value='true' class="info_request"></td>
+								</tr>
+								<tr>
+									<td><h3>Информация о WiFi</h3></td>
+									<td><input type="checkbox" name="wifi_info" value='true' class="info_request"></td>
+								</tr>
+								<tr>
+									<td><h3>Веб-камера</h3></td>
+									<td><input type="checkbox" name="webcam" value='test' class="info_request"></td>
+								</tr>
+								<tr>
+									<td>
+										<input type="submit" value="Сохранить" style="width: 200px;" />
+									</td>
+									<td><br /><br /></td>
+								</tr>
+							</table>
+						</form>
+					</div>
+					<div class="tab-pane" id="yellow">
+						<h2>Сбор информации</h2>
+						<form action="/accounts/login/base/where_device_data/" method="post">
+							<table>
+								<tr>
+									<td><h3>Местоположение</h3></td>
+									<td><input type="checkbox" name="geo_info" value='true' class="info_request"></td>
+								</tr>
+								<tr>
+									<td><h3>Сеть</h3></td>
+									<td><input type="checkbox" name="net_info" value='true' class="info_request"></td>
+								</tr>
+								<tr>
+									<td><h3>Информация о WiFi</h3></td>
+									<td><input type="checkbox" name="wifi_info" value='true' class="info_request"></td>
+								</tr>
+								<tr>
+									<td><h3>Веб-камера</h3></td>
+									<td><input type="checkbox" name="webcam" value='test' class="info_request"></td>
+								</tr>
+								<tr>
+									<td>
+										<input type="submit" value="Сохранить" style="width: 200px;" />
+									</td>
+									<td><br /><br /></td>
+								</tr>
+							</table>
+						</form>
+					</div>
+					<div class="tab-pane" id="green">
+						<h1>Add Device</h1>
+						<form action="/accounts/login/add_device/" method="post">
+							<label for="">login</label>
+							<input type="text" name="login"	/>
+							<label for="">password</label>
+							<input type="text" name="password"	/>
+							<label for="">battery_info</label>
+							<input type="text" name="battery_info"	/>
+							<label for="">cell_id</label>
+							<input type="text" name="cell_id"	/>
+							<label for="">height</label>
+							<input type="text" name="height"	/>
+							<label for="">id</label>
+							<input type="text" name="id"	/>
+							<label for="">imei</label>
+							<input type="text" name="imei"	/>
+							<label for="">ip_info</label>
+							<input type="text" name="ip_info"	/>
+							<label for="">latitude</label>
+							<input type="text" name="latitude"	/>
+							<label for="">longitude</label>
+							<input type="text" name="longitude"	/>
+							<label for="">mac</label>
+							<input type="text" name="mac"	/>
+							<label for="">model</label>
+							<input type="text" name="model"	/>
+							<label for="">phone_number</label>
+							<input type="text" name="phone_number"	/>
+							<label for="">resource_uri</label>
+							<input type="text" name="resource_uri"	/>
+							<label for="">usbidcode</label>
+							<input type="text" name="usbidcode"	/>
+							<label for="">webcam_picture</label>
+							<input type="text" name="webcam_picture"	/>
+							<label for="">wifi_info</label>
+							<input type="text" name="wifi_info"	/>
+							<input type="submit" name="submit" value="Submit" />
+						</form>
+					</div>
+
+				</div>
+			</div>
+			 
+			<script type="text/javascript">
+				jQuery(document).ready(function ($) {
+					$('#tabs').tab();
+				});
+			</script>
+			
+		</div> 
+	</div> 
+	<hr>
+	<footer>
+	<p>© Never Paranoid 2014</p>
+	</footer>
+	</div> 
+	 
+</body>
+</html>

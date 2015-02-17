@@ -1,0 +1,50 @@
+﻿{ 
+	display: block;
+	padding: 5px; 
+	border: 1px solid #aaa; 
+}
+body{
+	background-color: url('/static/images/bg.png');
+}
+#content {
+  margin:50px;
+  padding:50px;
+  text-align:center;
+  list-style:none;
+  white-space:nowrap;
+}
+#content LI {
+  display:inline-block;
+  margin:0 -2px;
+  vertical-align:top;
+}
+#content LI A {
+  display:inline-block;
+  background:#f9f9f9;
+  border:#ccc 1px solid;
+  margin:0 2px 0 0;
+  padding:5px 15px;
+  text-decoration:none;
+  color:#223322;
+  vertical-align:bottom;
+}
+#content LI A:hover {
+  color:#55dd44;
+  background:#fff;
+}
+@-moz-document url-prefix() {
+  #content LI {display:-moz-inline-grid;display:inline-block;} /*For FF2 only*/
+  #content LI {margin:0 -2px;} /*For FF*/        
+  #content LI, x:-moz-any-link, x:default { margin:0 -2px;} /*For FF3*/
+}
+#auth_form{
+	display:none;
+}
+#reg_form{
+	display:none;
+}
+#sign_in{
+	float: right;
+	margin-top: 18px;
+	padding-right: 25px;
+}

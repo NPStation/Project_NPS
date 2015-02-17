@@ -1,0 +1,922 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="ff15aa5c-1329-4adb-9be0-ebce41e7b9d1" name="Default" comment="" />
+    <ignored path="np_station.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="DaemonCodeAnalyzer">
+    <disable_hints />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="np_station" />
+  </component>
+  <component name="FileEditorManager">
+    <splitter split-orientation="horizontal" split-proportion="0.51087904">
+      <split-first>
+        <leaf>
+          <file leaf-file-name="models.py" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/np_server/models.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="33" column="33" selection-start="1083" selection-end="1083" vertical-scroll-proportion="0.0" vertical-offset="1734" max-vertical-offset="2720">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="models.py" pinned="false" current="true" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/api_v_1/models.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="686">
+                  <folding>
+                    <element signature="e#0#28#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="settings.py" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/np_station/settings.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="138" column="13" selection-start="4811" selection-end="4811" vertical-scroll-proportion="0.0" vertical-offset="2346" max-vertical-offset="3332">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="serializers.py" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/np_server/serializers.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="15" column="0" selection-start="413" selection-end="413" vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="357">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="views.py" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/np_server/views.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="355" column="33" selection-start="15060" selection-end="15060" vertical-scroll-proportion="0.0" vertical-offset="6035" max-vertical-offset="6511">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="urls.py" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/np_station/urls.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="39" column="53" selection-start="1343" selection-end="1343" vertical-scroll-proportion="0.0" vertical-offset="663" max-vertical-offset="1105">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf>
+          <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/np_server/templates/index.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="105" column="0" selection-start="4658" selection-end="4658" vertical-scroll-proportion="-0.0" vertical-offset="1785" max-vertical-offset="2703">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="style.css" pinned="false" current="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/np_server/static/styles/style.css">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="33" column="1" selection-start="560" selection-end="560" vertical-scroll-proportion="0.7934936" vertical-offset="0" max-vertical-offset="935">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
+  </component>
+  <component name="FindManager">
+    <FindUsagesManager>
+      <setting name="OPEN_NEW_TAB" value="false" />
+    </FindUsagesManager>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="changedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/np_server/templates/index.html" />
+        <option value="$PROJECT_DIR$/np_station/urls.py" />
+        <option value="$PROJECT_DIR$/np_station/settings.py" />
+        <option value="$PROJECT_DIR$/np_server/views.py" />
+        <option value="$PROJECT_DIR$/np_server/models.py" />
+        <option value="$PROJECT_DIR$/np_server/serializers.py" />
+        <option value="$PROJECT_DIR$/np_server/static/styles/style.css" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="1358" />
+    <option name="y" value="-8" />
+    <option name="width" value="1456" />
+    <option name="height" value="876" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
+  </component>
+  <component name="ProjectReloadState">
+    <option name="STATE" value="0" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1" splitterProportion="0.5">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="np_station" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="recentsLimit" value="5" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="FullScreen" value="false" />
+  </component>
+  <component name="PyConsoleOptionsProvider">
+    <option name="myPythonConsoleState">
+      <console-settings />
+    </option>
+  </component>
+  <component name="RunManager" selected="Django server.np_station">
+    <configuration default="true" type="DjangoTestsConfigurationType" factoryName="Django tests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="np_station" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="TARGET" value="" />
+      <option name="SETTINGS_FILE" value="" />
+      <option name="CUSTOM_SETTINGS" value="false" />
+      <option name="USE_OPTIONS" value="false" />
+      <option name="OPTIONS" value="" />
+      <method />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="py.test">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="np_station" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <option name="testToRun" value="" />
+      <option name="keywords" value="" />
+      <option name="params" value="" />
+      <option name="USE_PARAM" value="false" />
+      <option name="USE_KEYWORD" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Nosetests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="np_station" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <option name="PARAMS" value="" />
+      <option name="USE_PARAM" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="np_station" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <method />
+    </configuration>
+    <configuration default="true" type="Python.DjangoServer" factoryName="Django server">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="np_station" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <option name="port" value="8000" />
+      <option name="host" value="" />
+      <option name="additionalOptions" value="" />
+      <option name="browserUrl" value="" />
+      <option name="runTestServer" value="false" />
+      <option name="runNoReload" value="false" />
+      <option name="useCustomRunCommand" value="false" />
+      <option name="customRunCommand" value="" />
+      <method />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Unittests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="np_station" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <option name="PUREUNITTEST" value="true" />
+      <option name="PARAMS" value="" />
+      <option name="USE_PARAM" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug" singleton="true">
+      <method />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Doctests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="np_station" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Attests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="np_station" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="np_station" type="Python.DjangoServer" factoryName="Django server">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+        <env name="DJANGO_SETTINGS_MODULE" value="np_station.settings" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="np_station" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <option name="port" value="8000" />
+      <option name="host" value="" />
+      <option name="additionalOptions" value="" />
+      <option name="browserUrl" value="" />
+      <option name="runTestServer" value="false" />
+      <option name="runNoReload" value="false" />
+      <option name="useCustomRunCommand" value="false" />
+      <option name="customRunCommand" value="" />
+      <RunnerSettings RunnerId="PythonRunner" />
+      <ConfigurationWrapper RunnerId="PythonRunner" />
+      <method />
+    </configuration>
+    <list size="1">
+      <item index="0" class="java.lang.String" itemvalue="Django server.np_station" />
+    </list>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SvnConfiguration" maxAnnotateRevisions="500" myUseAcceleration="nothing" myAutoUpdateAfterCommit="false" cleanupOnStartRun="false" SSL_PROTOCOLS="all">
+    <option name="USER" value="" />
+    <option name="PASSWORD" value="" />
+    <option name="mySSHConnectionTimeout" value="30000" />
+    <option name="mySSHReadTimeout" value="30000" />
+    <option name="LAST_MERGED_REVISION" />
+    <option name="MERGE_DRY_RUN" value="false" />
+    <option name="MERGE_DIFF_USE_ANCESTRY" value="true" />
+    <option name="UPDATE_LOCK_ON_DEMAND" value="false" />
+    <option name="IGNORE_SPACES_IN_MERGE" value="false" />
+    <option name="CHECK_NESTED_FOR_QUICK_MERGE" value="false" />
+    <option name="IGNORE_SPACES_IN_ANNOTATE" value="true" />
+    <option name="SHOW_MERGE_SOURCES_IN_ANNOTATE" value="true" />
+    <option name="FORCE_UPDATE" value="false" />
+    <option name="IGNORE_EXTERNALS" value="false" />
+    <myIsUseDefaultProxy>false</myIsUseDefaultProxy>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ff15aa5c-1329-4adb-9be0-ebce41e7b9d1" name="Default" comment="" />
+      <created>1394823050255</created>
+      <updated>1394823050255</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="1358" y="-8" width="1456" height="876" extended-state="6" />
+    <editor active="false" />
+    <layout>
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.12660944" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.1388889" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="myTodoPanelSettings">
+      <TodoPanelSettings />
+    </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/np_station/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="37" column="53" selection-start="1260" selection-end="1260" vertical-scroll-proportion="0.0" vertical-offset="629" max-vertical-offset="986">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/np_server/templates/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="92" column="0" selection-start="3725" selection-end="3725" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2465">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/np_server/static/styles/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="5" selection-start="69" selection-end="69" vertical-scroll-proportion="0.0" vertical-offset="305" max-vertical-offset="935">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/np_server/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="42" column="0" selection-start="1352" selection-end="1352" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2737">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/np_station/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="136" column="13" selection-start="4786" selection-end="4786" vertical-scroll-proportion="0.0" vertical-offset="2312" max-vertical-offset="3298">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/np_server/serializers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="0" selection-start="413" selection-end="413" vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="357">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/np_server/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="346" column="0" selection-start="14578" selection-end="14578" vertical-scroll-proportion="0.0" vertical-offset="5882" max-vertical-offset="6035">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/np_station/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="37" column="53" selection-start="1260" selection-end="1260" vertical-scroll-proportion="0.0" vertical-offset="629" max-vertical-offset="986">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/np_server/templates/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="92" column="0" selection-start="3725" selection-end="3725" vertical-scroll-proportion="0.0" vertical-offset="1564" max-vertical-offset="2465">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/np_server/static/styles/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="5" selection-start="69" selection-end="69" vertical-scroll-proportion="0.0" vertical-offset="85" max-vertical-offset="935">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/np_server/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="42" column="0" selection-start="1352" selection-end="1352" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2737">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/np_station/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="136" column="13" selection-start="4786" selection-end="4786" vertical-scroll-proportion="0.0" vertical-offset="2312" max-vertical-offset="3298">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/np_server/serializers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="0" selection-start="413" selection-end="413" vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="357">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/np_server/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="346" column="0" selection-start="14578" selection-end="14578" vertical-scroll-proportion="0.0" vertical-offset="5729" max-vertical-offset="5729">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/np_station/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="37" column="53" selection-start="1260" selection-end="1260" vertical-scroll-proportion="0.0" vertical-offset="629" max-vertical-offset="986">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/np_server/templates/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="92" column="0" selection-start="3725" selection-end="3725" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2465">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/np_server/static/styles/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="5" selection-start="69" selection-end="69" vertical-scroll-proportion="0.0" vertical-offset="85" max-vertical-offset="935">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/np_server/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="136" column="24" selection-start="4611" selection-end="4611" vertical-scroll-proportion="0.0" vertical-offset="374" max-vertical-offset="2737">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/np_station/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="136" column="13" selection-start="4786" selection-end="4786" vertical-scroll-proportion="0.0" vertical-offset="2312" max-vertical-offset="3298">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/np_server/serializers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="0" selection-start="413" selection-end="413" vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="357">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/np_server/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="344" column="0" selection-start="14576" selection-end="14576" vertical-scroll-proportion="0.0" vertical-offset="5848" max-vertical-offset="6035">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/np_station/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="37" column="53" selection-start="1260" selection-end="1260" vertical-scroll-proportion="0.0" vertical-offset="629" max-vertical-offset="986">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/np_server/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="155" column="0" selection-start="5197" selection-end="5197" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2737">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/np_station/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="136" column="13" selection-start="4786" selection-end="4786" vertical-scroll-proportion="0.0" vertical-offset="2312" max-vertical-offset="3298">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/np_server/serializers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="0" selection-start="413" selection-end="413" vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="357">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/np_server/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="342" column="0" selection-start="14502" selection-end="14502" vertical-scroll-proportion="0.0" vertical-offset="5249" max-vertical-offset="6001">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/np_station/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="47" column="0" selection-start="1776" selection-end="1776" vertical-scroll-proportion="0.0" vertical-offset="799" max-vertical-offset="799">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/np_server/templates/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="91" column="0" selection-start="2888" selection-end="2888" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2516">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/np_server/static/styles/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="18" selection-start="35" selection-end="35" vertical-scroll-proportion="0.0" vertical-offset="230" max-vertical-offset="816">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/np_server/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="98" column="0" selection-start="3129" selection-end="3129" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2720">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/np_station/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="157" column="21" selection-start="5519" selection-end="5519" vertical-scroll-proportion="0.0" vertical-offset="2669" max-vertical-offset="3298">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/np_server/serializers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="32" selection-start="382" selection-end="382" vertical-scroll-proportion="0.0" vertical-offset="221" max-vertical-offset="323">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/np_server/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="286" column="14" selection-start="12158" selection-end="12158" vertical-scroll-proportion="0.0" vertical-offset="4620" max-vertical-offset="5236">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/np_station/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="47" column="0" selection-start="1776" selection-end="1776" vertical-scroll-proportion="0.0" vertical-offset="404" max-vertical-offset="969">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/np_server/templates/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="91" column="0" selection-start="2888" selection-end="2888" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2516">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/np_server/static/styles/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="18" selection-start="35" selection-end="35" vertical-scroll-proportion="0.0" vertical-offset="34" max-vertical-offset="816">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/np_server/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="98" column="0" selection-start="3129" selection-end="3129" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2720">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/np_station/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3196">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/np_station/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="27" column="40" selection-start="1033" selection-end="1033" vertical-scroll-proportion="0.0" vertical-offset="156" max-vertical-offset="714">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/np_server/templates/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="124" column="45" selection-start="3740" selection-end="3751" vertical-scroll-proportion="0.0" vertical-offset="357" max-vertical-offset="2516">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/np_server/static/styles/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="18" selection-start="35" selection-end="35" vertical-scroll-proportion="0.0" vertical-offset="34" max-vertical-offset="816">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://DjangoModelDependency/#np_station">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>DjangoModelDependency</ID>
+          <OriginalElement>#np_station</OriginalElement>
+          <nodes>
+            <node x="" y="">np_server.models.ClientStatus</node>
+            <node x="" y="">np_server.models.Report</node>
+            <node x="" y="">np_server.models.CellId</node>
+            <node x="" y="">np_server.models.Action</node>
+            <node x="" y="">np_server.models.Device</node>
+            <node x="" y="">np_server.models.SmsCommands</node>
+            <node x="" y="">np_server.models.OS</node>
+            <node x="" y="">np_server.models.Research</node>
+            <node x="" y="">django.contrib.auth.models.User</node>
+            <node x="" y="">np_server.models.UserProfile</node>
+            <node x="" y="">np_server.models.PasswordType</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="0.8679999999999999" x="714.0" y="100.0" />
+          <SelectedNodes />
+          <Categories />
+          <SCOPE>All</SCOPE>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/np_server/templates/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="105" column="0" selection-start="4658" selection-end="4658" vertical-scroll-proportion="0.0" vertical-offset="1785" max-vertical-offset="2703">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/np_server/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="355" column="33" selection-start="15060" selection-end="15060" vertical-scroll-proportion="0.0" vertical-offset="6035" max-vertical-offset="6511">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/np_station/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="39" column="53" selection-start="1343" selection-end="1343" vertical-scroll-proportion="0.0" vertical-offset="663" max-vertical-offset="1105">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/np_station/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="138" column="13" selection-start="4811" selection-end="4811" vertical-scroll-proportion="0.0" vertical-offset="2346" max-vertical-offset="3332">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/np_server/serializers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="0" selection-start="413" selection-end="413" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="323">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://Python/#C:/Arhiv/PROJECTS_PORTFOLIO/Rinat/ParanoidWorld/LuckyStrike/np_station/np_server/models.py">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>Python</ID>
+          <OriginalElement>#C:/Arhiv/PROJECTS_PORTFOLIO/Rinat/ParanoidWorld/LuckyStrike/np_station/np_server/models.py</OriginalElement>
+          <nodes>
+            <node x="1290.0" y="184.0">np_server.models.ClientStatus</node>
+            <node x="1677.0" y="184.0">np_server.models.Report</node>
+            <node x="715.0" y="184.0">np_server.models.CellId</node>
+            <node x="213.0" y="184.0">np_server.models.Action</node>
+            <node x="541.0" y="184.0">np_server.models.Device</node>
+            <node x="0.0" y="184.0">np_server.models.SmsCommands</node>
+            <node x="385.0" y="184.0">np_server.models.OS</node>
+            <node x="1490.0" y="184.0">np_server.models.Research</node>
+            <node x="791.75" y="77.0">django.db.models.base.Model</node>
+            <node x="815.75" y="0.0">_abcoll.Hashable</node>
+            <node x="884.0" y="184.0">np_server.models.UserProfile</node>
+            <node x="1078.0" y="184.0">np_server.models.PasswordType</node>
+          </nodes>
+          <notes />
+          <edges>
+            <edge source="np_server.models.Report" target="django.db.models.base.Model">
+              <point x="0.0" y="-13.5" />
+              <point x="1754.5" y="124.0" />
+              <point x="959.8999999999999" y="124.0" />
+              <point x="79.64999999999998" y="13.5" />
+            </edge>
+            <edge source="np_server.models.PasswordType" target="django.db.models.base.Model">
+              <point x="0.0" y="-13.5" />
+              <point x="1174.0" y="154.0" />
+              <point x="906.8" y="154.0" />
+              <point x="26.549999999999955" y="13.5" />
+            </edge>
+            <edge source="np_server.models.UserProfile" target="django.db.models.base.Model">
+              <point x="0.0" y="-13.5" />
+              <point x="971.0" y="164.0" />
+              <point x="889.0999999999999" y="164.0" />
+              <point x="8.850000000000023" y="13.5" />
+            </edge>
+            <edge source="np_server.models.OS" target="django.db.models.base.Model">
+              <point x="0.0" y="-13.5" />
+              <point x="453.0" y="144.0" />
+              <point x="836.0" y="144.0" />
+              <point x="-44.25" y="13.5" />
+            </edge>
+            <edge source="np_server.models.Action" target="django.db.models.base.Model">
+              <point x="0.0" y="-13.5" />
+              <point x="289.0" y="134.0" />
+              <point x="818.3" y="134.0" />
+              <point x="-61.950000000000045" y="13.5" />
+            </edge>
+            <edge source="np_server.models.Research" target="django.db.models.base.Model">
+              <point x="0.0" y="-13.5" />
+              <point x="1573.5" y="134.0" />
+              <point x="942.1999999999998" y="134.0" />
+              <point x="61.94999999999993" y="13.5" />
+            </edge>
+            <edge source="np_server.models.ClientStatus" target="django.db.models.base.Model">
+              <point x="0.0" y="-13.5" />
+              <point x="1380.0" y="144.0" />
+              <point x="924.5" y="144.0" />
+              <point x="44.25" y="13.5" />
+            </edge>
+            <edge source="np_server.models.Device" target="django.db.models.base.Model">
+              <point x="0.0" y="-13.5" />
+              <point x="618.0" y="154.0" />
+              <point x="853.7" y="154.0" />
+              <point x="-26.549999999999955" y="13.5" />
+            </edge>
+            <edge source="django.db.models.base.Model" target="_abcoll.Hashable">
+              <point x="0.0" y="-13.5" />
+              <point x="0.0" y="13.5" />
+            </edge>
+            <edge source="np_server.models.SmsCommands" target="django.db.models.base.Model">
+              <point x="0.0" y="-13.5" />
+              <point x="96.5" y="124.0" />
+              <point x="800.5999999999999" y="124.0" />
+              <point x="-79.64999999999998" y="13.5" />
+            </edge>
+            <edge source="np_server.models.CellId" target="django.db.models.base.Model">
+              <point x="0.0" y="-13.5" />
+              <point x="789.5" y="164.0" />
+              <point x="871.3999999999999" y="164.0" />
+              <point x="-8.850000000000023" y="13.5" />
+            </edge>
+          </edges>
+          <settings layout="Hierarchic Group" zoom="1.020194384449244" x="748.0267809886736" y="80.69831692600826" />
+          <SelectedNodes>
+            <node>_abcoll.Hashable</node>
+          </SelectedNodes>
+          <Categories />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/np_server/static/styles/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="33" column="1" selection-start="560" selection-end="560" vertical-scroll-proportion="0.7934936" vertical-offset="0" max-vertical-offset="935">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/np_server/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="33" column="33" selection-start="1083" selection-end="1083" vertical-scroll-proportion="0.0" vertical-offset="1734" max-vertical-offset="2720">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api_v_1/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="686">
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
+

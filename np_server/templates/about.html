@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Never Paranoid Station</title>
+		<link href="/static/styles/stylish-portfolio.css" rel="stylesheet">
+		<link href='http://fonts.googleapis.com/css?family=Roboto&subset=latin,cyrillic-ext' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="/static/styles/bootstrap.min.css"/>
+		<link rel="stylesheet" href="/static/styles/bootstrap-social.css"/>
+		<link rel="stylesheet" href="/static/styles/bootstrap.css"/>
+		<link rel="stylesheet" href="/static/styles/bootstrap-theme.min.css"/>
+		<link href="http://bootstrap-ru.com/204/assets/css/bootstrap-responsive.css" rel="stylesheet">
+		<style type="text/css">body{padding-top:60px;padding-bottom:40px;}.sidebar-nav{padding:9px 0;}</style>
+
+	</head>
+<body>
+	<div class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container-fluid">
+				<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				</a>
+				<a class="brand" href="#">Never Paranoid Station</a>
+<!-- 				<div class="btn-group pull-right">
+					<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+						<i class="icon-user"></i> Username
+						<span class="caret"></span>
+					</a>
+					<ul class="dropdown-menu">
+					<li><a href="#">Profile</a></li>
+					<li class="divider"></li>
+					<li><a href="#">Sign Out</a></li>
+					</ul>
+				</div> -->
+				<div class="nav-collapse">
+					<ul class="nav">
+						<li class="active"><a href="/">Home</a></li>
+						<li><a href="/about/">About</a></li>
+						<li><a href="/api_v_1_doc/">API</a></li>
+						<li><a href="/weblog/">Blogs</a></li>
+		<!-- 			<li><a href="#">rus/eng</a></li> -->
+					</ul>
+				</div> 
+			</div>
+		</div>
+	</div>
+
+
+
+{% block content %}
+	<div class="container">
+		<!-- Main hero unit for a primary marketing message or call to action -->
+		<div class="row">
+			<div class="span9">
+			<h3>Follow us in social networks/Ищите нас в социальных сетях</h3>
+			</div>
+		</div>
+		<div class="row">
+			<div class="span9">
+			       	<ul class="list-inline">
+                        <li><a href="https://www.facebook.com/npstation"><img src="/static/images/facebook.png" alt="" /></a>
+                        </li>
+						<li><a href="https://vk.com/npstation"><img src="/static/images/vkontakte.png" alt="" /></a>
+                        </li>
+                        <li><a href="https://twitter.com/npstation"><img src="/static/images/twitter.png" alt="" /></a>
+                        </li>
+                        <li><a href="https://plus.google.com/u/0/communities/115899379881650667309"><img src="/static/images/google_plus.png" alt="" /></a>
+							<!-- Place this tag where you want the +1 button to render. -->
+							<div class="g-plusone" data-annotation="inline" data-width="300"></div>
+
+							<!-- Place this tag after the last +1 button tag. -->
+							<script type="text/javascript">
+							  (function() {
+								var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+								po.src = 'https://apis.google.com/js/platform.js';
+								var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+							  })();
+							</script>
+						</li>
+                    </ul>
+			</div>
+
+		</div>
+
+
+
+
+{% endblock %}
+	<script type="text/javascript" src="/static/scripts/bootstrap.js"></script>
+	<script type="text/javascript" src="/static/scripts/jquery-1.11.0.min.js"></script>
+</body>
+</html>
