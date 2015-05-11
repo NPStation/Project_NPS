@@ -332,6 +332,26 @@ def view_on_map(request):
 #
 #
 
+def mvd_message(request):
+	if "you_session" in request.session:
+		if 'mvd' in request.POST:
+			tmp_mvd = "mvd_map"
+			t = get_template('usermodule.html')
+			message = t.render(Context({'tmp_mvd': tmp_mvd }))
+			return HttpResponse(message)
+	else:
+		error_message = "error"
+		t = get_template('usermodule.html')
+		message = t.render(Context({'error_message': error_message }))
+		return HttpResponse(message)
+
+def all_tools(request):
+	if "you_session" in request.session:
+		if 'all_tools' in request.POST:
+			all_tools = 'tools_view'
+			t = get_template('usermodule.html')
+			message = t.render(Context({'all_tools': all_tools}))
+			return HttpResponse(message)
 
 def parsing_for_cellid():
     if (if_user_session(request.session['you_session'])):
@@ -366,24 +386,36 @@ def parsing_for_cellid():
         #Вывести в яндекс карты
         #Вывести в консоль - координаты получены
 
-#---------------------------------------------------------------
 
+#--------------------Если-когда-нибудь-понадобиться------------------
+def task_manager_input(request):
+
+	return render_to_response("usermodule.html")
+#Добавить задачу в базу
+#Если изменена стоимость
+
+def task_manager_output(request):
+	return render_to_response("usermodule.html")
+#Обратиться к базе
+#Выводить сортируя по элементам
+#Вывести задачу на экран
+
+
+		
 def checked_device(request): #Происходит при выборе устройства
+	api_key = 'AKgqHEkBAAAA-WzMYwIAeAeamm8ETZZZpdfp2R07eIuGyX4AAAAAAAAAAACjUCDoHIHZJ2pcl5mSL1zWVp2Myw=='
+	pos[0] = 55.039873
+	pos[1] = 55.961532
+	
 	if 'modelDevice' in request.POST:
 		if request.POST['modelDevice'] == 'Gsmart 1345':
 			pick_dev = Device.objects.get(user_id=1, model='Gsmart 1345')
 			my_way = UpdateDevice.objects.get(model='Gsmart 1345')
 			return render_to_response("usermodule.html", {'my_way':my_way,'pick_dev':pick_dev})
-			
+
 	#Делаем запрос в базу, ищем конкретное устройство - 1, Device
 	#Выбираем три последние координаты привязанные к данному устройству - UpdateDevice
 	#Выводим координаты на карту
-
-#def line_create(): #Происходит при выводе координат
-	
-		
-	
-	
 
 #-------------------------------------------------------------
 from django.contrib.auth.models import User, Group

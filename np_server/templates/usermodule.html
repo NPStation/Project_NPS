@@ -13,6 +13,31 @@
 		<script type="text/javascript" src="/static/scripts/bootstrap.js"></script>
 		<script src="http://api-maps.yandex.ru/2.0/?load=package.full&lang=ru-RU" type="text/javascript"></script>
 		<script src="http://yandex.st/jquery/1.6.4/jquery.min.js" type="text/javascript"></script>
+		<style type="text/css">
+		input.link {
+		  /* Первые два свойства нужны чтобы убрать отступы в IE */
+		  overflow: visible;
+		  width: auto;
+		  color: #0088cc;
+		 
+		  /* Убираем отступы */
+		  margin: 0;
+		  padding: 0;
+		 
+		  /* Убираем все элементы оформления кнопки */
+		  background: none;
+		  border: none;
+		 
+		  /* Обычный для ссылок курсор */
+		  cursor: pointer;
+		}
+		 
+		/* Ссылка обычно подчеркнута */
+		input.link:hover, input.link:focus {
+		  color: #0088cc;
+		  text-decoration: underline;
+		}
+		</style>
 	</head>
 <body>
 	<div class="navbar navbar-fixed-top">
@@ -49,22 +74,94 @@
 	</div>
 	
 	<div class="container-fluid">
+	
 	<div class="row-fluid">
 		<div class="span3">
 		<div class="well sidebar-nav">
 			<ul class="nav nav-list">
 				<li class="nav-header">Device List</li>
-				<form action="/accounts/login/update_device/" action="post">
-				{% for dev_to in all_devices %}
-					<li><input type="submit" name="modelDevice" value={{ dev_to.model }} /></li>
-				{% endfor %}
-				</form>
+				
+			<div class="panel-group" id="accordion">
+			  <div class="panel panel-default">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						  <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+							Устройства
+						  </a>
+					</h4>
+				</div>
+				<div id="collapseOne" class="panel-collapse collapse">
+				  <div class="panel-body">
+					<form action="/accounts/login/alltools/" method="post">
+							<li><input type="submit" name="all_tools" value="Инструменты" class="link"></input></li>
+					</form>
+					{% for dev_to in all_devices %}
+						<li><a href="#">{{ dev_to.model }}</a></li>
+					{% endfor %}
+				  </div>
+				</div>
+			  </div>
+			  <div class="panel panel-default">
+				<div class="panel-heading">
+				  <h4 class="panel-title">
+						  <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+							Заказы
+						  </a>
+						</h4>
+				</div>
+				<div id="collapseTwo" class="panel-collapse collapse">
+				  <div class="panel-body">
+					<li>Заказчик</li>
+					<li>Исполнитель</li>
+					<li>Сообщения/Чат</li>
+				  </div>
+				</div>
+			  </div>
+			  <div class="panel panel-default">
+				<div class="panel-heading">
+				  <h4 class="panel-title">
+						  <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+								Электронное обращение
+						  </a>
+						</h4>
+				</div>
+				<div id="collapseThree" class="panel-collapse collapse">
+					<div class="panel-body">
+						<form action="/accounts/login/mvd/" method="post">
+							<li><input type="submit" name="mvd" value="По России" class="link"></input></li>
+							<li>Инструкция</li>
+						</form>
+					</div>
+				</div>
+			  </div>
+			  <div class="panel panel-default">
+				<div class="panel-heading">
+				  <h4 class="panel-title">
+						  <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
+							Биржа задач
+						  </a>
+						</h4>
+				</div>
+				<div id="collapseFour" class="panel-collapse collapse">
+				  <div class="panel-body">
+						<li>Поиск</li>
+				  </div>
+				</div>
+			  </div>
+			</div>
+				
+				
 			</ul>
 		</div> 
 		</div> 
 	
 		<div class="span9">
 			<!-- Nav tabs -->
+			
+			{% block content %}
+			
+			{% if all_tools != None %}
+			
 			<div id="content">
 				<ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
 					<li class="active"><a href="#red" data-toggle="tab">Monitor Panel</a></li>
@@ -76,71 +173,70 @@
 					<div class="tab-pane active" id="red">
 
 						<div class="row-fluid">
-							<div class="span8">
-							<center>
-								<h1>Yandex Maps</h1>
-								{% if my_way != None %}
-								{% endif %}
-								<script type="text/javascript">
-									ymaps.ready(init);
+							<div class="span12">
+								<center>
+									<h1>Yandex Maps</h1>
+							
+									<script type="text/javascript">
+										ymaps.ready(init);
 
-									function init () {
-										var myMap = new ymaps.Map('map', {
-												center: ["{{ latitude_one }}", "{{ longitude_one }}"],
-												zoom: 10
-											}),
-											myPlacemark = new ymaps.Placemark(["{{ latitude_one }}", "{{ longitude_one }}"], {
-												// Чтобы балун и хинт открывались на метке, необходимо задать ей определенные свойства.
-												balloonContentHeader: "Балун метки",
-												balloonContentBody: "Содержимое <em>балуна</em> метки",
-												balloonContentFooter: "Подвал",
-												hintContent: "Хинт метки"
-											});
+										function init () {
+											var myMap = new ymaps.Map('map', {
+													center: ["{{ latitude_one }}", "{{ longitude_one }}"],
+													zoom: 10
+												}),
+												myPlacemark = new ymaps.Placemark(["{{ latitude_one }}", "{{ longitude_one }}"], {
+													// Чтобы балун и хинт открывались на метке, необходимо задать ей определенные свойства.
+													balloonContentHeader: "Балун метки",
+													balloonContentBody: "Содержимое <em>балуна</em> метки",
+													balloonContentFooter: "Подвал",
+													hintContent: "Хинт метки"
+												});
 
-										myMap.geoObjects.add(myPlacemark);
+											myMap.geoObjects.add(myPlacemark);
 
-										// Для добавления элемента управления на карту
-										// используется поле map.controls.
-										// Это поле содержит ссылку на экземпляр класса map.control.Manager.
-										
-										// Добавление элемента в коллекцию производится
-										// с помощью метода add.
+											// Для добавления элемента управления на карту
+											// используется поле map.controls.
+											// Это поле содержит ссылку на экземпляр класса map.control.Manager.
+											
+											// Добавление элемента в коллекцию производится
+											// с помощью метода add.
 
-										// В метод add можно передать строковый идентификатор
-										// элемента управления и его параметры.
-										myMap.controls
-											// Кнопка изменения масштаба.
-											.add('zoomControl', { left: 5, top: 5 })
-											// Список типов карты
-											.add('typeSelector')
-											// Стандартный набор кнопок
-											.add('mapTools', { left: 35, top: 5 });
+											// В метод add можно передать строковый идентификатор
+											// элемента управления и его параметры.
+											myMap.controls
+												// Кнопка изменения масштаба.
+												.add('zoomControl', { left: 5, top: 5 })
+												// Список типов карты
+												.add('typeSelector')
+												// Стандартный набор кнопок
+												.add('mapTools', { left: 35, top: 5 });
 
-										// Также в метод add можно передать экземпляр класса элемента управления.
-										// Например, панель управления пробками.
-										var trafficControl = new ymaps.control.TrafficControl();
-										myMap.controls
-											.add(trafficControl)
-											// В конструкторе элемента управления можно задавать расширенные
-											// параметры, например, тип карты в обзорной карте.
-											.add(new ymaps.control.MiniMap({
-												type: 'yandex#publicMap'
-											}));
-										
-										/*
-										// Удаление элементов управления производится через метод remove.
-										myMap.controls
-											.remove(trafficControl)
-											.remove('mapTools');
-										*/
-									}
+											// Также в метод add можно передать экземпляр класса элемента управления.
+											// Например, панель управления пробками.
+											var trafficControl = new ymaps.control.TrafficControl();
+											myMap.controls
+												.add(trafficControl)
+												// В конструкторе элемента управления можно задавать расширенные
+												// параметры, например, тип карты в обзорной карте.
+												.add(new ymaps.control.MiniMap({
+													type: 'yandex#publicMap'
+												}));
+											
+											/*
+											// Удаление элементов управления производится через метод remove.
+											myMap.controls
+												.remove(trafficControl)
+												.remove('mapTools');
+											*/
+										}
 									</script>
-
-									<div id="map" style="width:100%; height:500px"></div>
+									<div id="map" style="width:100%; height:550PX;"></div>
 									{% if on_the_map != None %}
 									{% endif %}
 									
 								</center>
+								
 							</div> 
 
 						</div> 
@@ -326,6 +422,8 @@
 						</form>
 					</div>
 					<div class="tab-pane" id="green">
+					
+					
 						<h1>Add Device</h1>
 						<form action="/accounts/login/add_device/" method="post">
 							<label for="">login</label>
@@ -368,7 +466,59 @@
 
 				</div>
 			</div>
-			 
+			
+			{% endif %}
+			
+			{% if tmp_mvd != None %}
+			<div id="content">
+
+					<h2>Для граждан РФ есть возможность отправлять Электронное обращение по поводу пропавших устройств.</h2>
+					<br />
+						<table>
+							<tr>
+								<td>Выберите Регион:</td>
+							</tr>
+							<tr>
+								<td><a href="https://01.mvd.ru/request_main">Республика Адыгея</a></td>
+							</tr>
+							<tr>
+								<td><a href="https://02.mvd.ru/request_main">Республика Башкортостан</a></td>
+							</tr>
+							<tr>
+								<td><a href="https://03.mvd.ru/request_main">Республика Бурятия</a></td>
+							</tr>                                  
+							<tr>                                   
+								<td><a href="https://04.mvd.ru/request_main">Республика Алтай</a></td>
+							</tr>                                  
+							<tr>                                   
+								<td><a href="https://05.mvd.ru/request_main">Республика Дагестан</a> 	</td>
+							</tr>                                  
+							<tr>                                   
+								<td><a href="https://06.mvd.ru/request_main">Республика Ингушетия</a> </td>
+							</tr>                                  
+							<tr>                                   
+								<td><a href="https://07.mvd.ru/request_main">Кабардино-Балкарская республика</a> 	</td>
+							</tr>                                  
+							<tr>                                   
+								<td><a href="https://08.mvd.ru/request_main">Республика Калмыкия</a>	</td>
+							</tr>
+							<tr>
+								<td><a href="https://09.mvd.ru/request_main">Карачаево-Черкесская республика</a> </td>
+							</tr>
+							<tr>
+								<td><a href="https://10.mvd.ru/request_main">Республика Карелия</a> </td>
+							</tr>
+							
+						</table>
+			</div>
+			{% endif %}
+			
+			{% if error_message != None %}
+				<h1>you quit in session</h1>
+			{% endif %}
+			
+			{% endblock %}
+			
 			<script type="text/javascript">
 				jQuery(document).ready(function ($) {
 					$('#tabs').tab();
@@ -376,7 +526,8 @@
 			</script>
 			
 		</div> 
-	</div> 
+	</div>
+	
 	<hr>
 	<footer>
 	<p>© Never Paranoid 2014</p>
