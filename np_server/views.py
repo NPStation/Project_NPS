@@ -327,10 +327,7 @@ def view_on_map(request):
 	#Отправить данные на сервис отправки сообщений, послать команду
 	#
 	
-	
-#
-#
-#
+
 
 def mvd_message(request):
 	if "you_session" in request.session:
@@ -387,20 +384,74 @@ def parsing_for_cellid():
         #Вывести в консоль - координаты получены
 
 
-#--------------------Если-когда-нибудь-понадобиться------------------
-def task_manager_input(request):
-
-	return render_to_response("usermodule.html")
+#----------------------------Биржа задач-------------------------
+def task_manager_output(request):
+	if (if_user_session(request.session['you_session'])):
+		tmp_task = Task.objects.all()
+		return render_to_response("usermodule.html", {'tmp_task': tmp_task})
+	else:
+		return render_to_response("usermodule.html")
 #Добавить задачу в базу
 #Если изменена стоимость
 
-def task_manager_output(request):
-	return render_to_response("usermodule.html")
-#Обратиться к базе
-#Выводить сортируя по элементам
-#Вывести задачу на экран
+#--------------------------Дать задание---------------------------
 
+def task_manager_input_first(request):
+	if (if_user_session(request.session['you_session'])):
+		task_input = 'Сохранение в задачи в базу данных'
+		return render_to_response("usermodule.html", {'task_input': task_input})
+	else:
+		return render_to_response("usermodule.html")
+		
 
+def task_manager_input_second(request):
+	if (if_user_session(request.session['you_session'])):
+		#new_task = Task(user='g1pn0z', status=request.POST['1'], theme=request.POST['2'], task=request.POST['3'], term=request.POST['4'], cost=request.POST['5'], karma=request.POST['6'])
+		#new_task.save()
+		task_input_second = 'Сохранение в задачи в базу данных'
+		return render_to_response("usermodule.html", {'task_input_second': task_input_second})
+	else:
+		return render_to_response("usermodule.html")
+		
+def task_manager_input_third(request):
+	if (if_user_session(request.session['you_session'])):
+		userid = "1"
+		new_task = Task(user_id=userid, status=True, theme=request.POST['task_theme'], task=request.POST['task_task'], term=request.POST['task_term'], cost=request.POST['task_cost'], karma='1')
+		new_task.save()
+		tmp_task = Task.objects.all()
+		return render_to_response("usermodule.html", { 'tmp_task': tmp_task })
+	else:
+		return render_to_response("usermodule.html")
+#--------------------------------------------------------------------
+
+#------------------------Заказчик------------------------------------
+
+def customer_menu(request):
+	if (if_user_session(request.session['you_session'])):
+		customer_menu = 'Сохранение в задачи в базу данных'
+		return render_to_response("usermodule.html", {'customer_menu': customer_menu})
+	else:
+		return render_to_response("usermodule.html")
+
+#------------------------Исполнитель------------------------------------
+
+def artist_menu(request):
+	if (if_user_session(request.session['you_session'])):
+		artist_menu = 'Сохранение в задачи в базу данных'
+		return render_to_response("usermodule.html", {'artist_menu': artist_menu})
+	else:
+		return render_to_response("usermodule.html")
+		
+#------------------------Сообщения-Чат----------------------------------
+
+def message_chat(request):
+	if (if_user_session(request.session['you_session'])):
+		message_chat = 'Сохранение в задачи в базу данных'
+		return render_to_response("usermodule.html", {'message_chat': message_chat})
+	else:
+		return render_to_response("usermodule.html")
+
+#--------------------------------------------------------------------
 		
 def checked_device(request): #Происходит при выборе устройства
 	api_key = 'AKgqHEkBAAAA-WzMYwIAeAeamm8ETZZZpdfp2R07eIuGyX4AAAAAAAAAAACjUCDoHIHZJ2pcl5mSL1zWVp2Myw=='

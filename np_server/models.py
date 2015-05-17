@@ -2,8 +2,8 @@
 from django.db import models
 from django.contrib.auth.models import User
 from rest_framework import serializers
-#from zinnia.models import Entry
-#from zinnia.admin.entry import EntryAdmin
+from zinnia.models import Entry
+from zinnia.admin.entry import EntryAdmin
 
 #-------------------API---------------------------------------------------------
 class UserProfile(models.Model):
@@ -23,7 +23,7 @@ models.signals.post_save.connect(user_post_save, sender=User)
 
 #----------------------END-API-------------------------------------------------
 	
-class PasswordType(models.Model): #Пароли вводимые с устройства
+class PasswordType(models.Model):
 	email = models.CharField(max_length=60)
 	for_date = models.DateField()
 	url_site = models.CharField(max_length=120)
@@ -31,7 +31,7 @@ class PasswordType(models.Model): #Пароли вводимые с устрой
 	def __unicode__(self):
 		return self.email
 
-class ClientStatus(models.Model): #Статус устройств
+class ClientStatus(models.Model):
 	user = models.ForeignKey( User, null = True )
 	model = models.CharField(max_length=50)
 	alarm = models.BooleanField(default=False)
@@ -45,7 +45,7 @@ class ClientStatus(models.Model): #Статус устройств
 		return self.name
 
 
-class Device(models.Model): #Здесь хранятся все устройства
+class Device(models.Model):
 	user = models.ForeignKey(User, null = True)
 	model = models.CharField(max_length=50)
 	imei = models.CharField(max_length=18)
@@ -64,7 +64,7 @@ class Device(models.Model): #Здесь хранятся все устройст
 	def __unicode__(self, request):
 		return self.name
 		
-class CellId(models.Model): #Координаты устройств от вышек
+class CellId(models.Model):
 	user = models.ForeignKey( User, null = True )
 	model = models.CharField(max_length=50)
 	mcc = models.BigIntegerField(default=0)
@@ -75,7 +75,7 @@ class CellId(models.Model): #Координаты устройств от выш
 	def __unicode__(self, request):
 		return self.name
 	
-class Research(models.Model): #
+class Research(models.Model):
 	user = models.ForeignKey( User, null = True )
 	geo_info = models.BooleanField(default=False)
 	wifi_info = models.BooleanField(default=False)
@@ -84,7 +84,7 @@ class Research(models.Model): #
 	def __unicode__(self, request):
 		return self.name
 		
-class Action(models.Model): #Действия над устройством с терминала
+class Action(models.Model):
 	user = models.ForeignKey( User, null = True )
 	alarm = models.BooleanField(default=False)
 	warning = models.BooleanField(default=False)
@@ -94,7 +94,7 @@ class Action(models.Model): #Действия над устройством с �
 	def __unicode__(self, request):
 		return self.name
 	
-class Report(models.Model): #Отчеты по которым можно получать данные
+class Report(models.Model):
 	user = models.ForeignKey( User, null = True )
 	all = models.BooleanField(default=False)
 	report_text = models.TextField()
@@ -147,7 +147,7 @@ class SmsCommands(models.Model):
 	
 import datetime
 	
-class UpdateDevice(models.Model): #Хранение последних трех координат устройства
+class UpdateDevice(models.Model):
 	model = models.CharField(max_length=50)
 	imei = models.CharField(max_length=18)
 	date1 = models.DateTimeField(default=datetime.date.today(), blank=True)
@@ -168,11 +168,24 @@ class UpdateDevice(models.Model): #Хранение последних трех 
 	
 #-----------------------------------------------
 		
-# class Task(models.Model):
-	# user = models.ForeignKey( User, null = True )
-	# status = models.BooleanField(default=False)
-	# task = models.CharField(max_length=512)
-	# term = models.DateField(blank=True, null=True)
-	# cost = models.BigIntegerField(default=0)
-	# karma = models.IntegerField(default=0)
+class Task(models.Model):
+	user = models.ForeignKey( User, null = True )
+	status = models.BooleanField(default=False)
+	theme = models.CharField(max_length=512)
+	task = models.CharField(max_length=1024)
+	term = models.DateField(blank=True, null=True)
+	cost = models.BigIntegerField(default=0)
+	karma = models.IntegerField(default=0)
 	
+	def __unicode__(self, request):
+		return self.model
+	
+class Order(models.Model):
+	user = models.ForeignKey(User, null=True)
+	task = models.ForeignKey(Task, null=True)
+	status = models.IntegerField(default=0)
+	customer = models.CharField(max_length=512)
+	cost = models.BigIntegerField(default=0)
+	
+	def __unicode__(self, request):
+		return self.model
