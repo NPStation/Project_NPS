@@ -167,25 +167,115 @@ class UpdateDevice(models.Model):
 		return self.model
 	
 #-----------------------------------------------
+class Karma(models.Model):
+	user = models.ForeignKey(User, null = True)
+	karma_index = models.IntegerField(default=0)
+	
+	def __unicode__(self, request):
+		return self.model
+
+# Отношение тем по категориям
+# sub_category - (Boolean) простая(false) или комплексная(true)
+class Category(models.Model):
+	category_name = models.CharField(max_length=512)
+	sub_category = models.BooleanField(default=False)
+	
+	def __unicode__(self, request):
+		return self.model
+		
+class Status(models.Model):
+	user = models.ForeignKey(User, null=True)
+	busyness = models.BooleanField(default=True)
+	sold = models.BooleanField(default=False)
+	in_work = models.BooleanField(default=False)
+	checking = models.BooleanField(default=False)
+	draft = models.BooleanField(default=False)
+	recoil = models.BooleanField(default=False)
+	arbitration = models.BooleanField(default=False)
+	finished = models.BooleanField(default=False)
+	
+	def __unicode__(self, request):
+		return self.model
+
+class Billing(models.Model):
+	user = models.ForeignKey( User, null = True )
+	cost = models.BigIntegerField(default=0)
+	system_cost = models.BigIntegerField(default=0)
+	payment = models.CharField(max_length=512)
+	history = models.CharField(max_length=512)
+	
+	def __unicode__(self, request):
+		return self.model
+		
 		
 class Task(models.Model):
 	user = models.ForeignKey( User, null = True )
-	status = models.BooleanField(default=False)
+	status = models.ForeignKey(Status, null=True)
 	theme = models.CharField(max_length=512)
 	task = models.CharField(max_length=1024)
 	term = models.DateField(blank=True, null=True)
 	cost = models.BigIntegerField(default=0)
-	karma = models.IntegerField(default=0)
+	karma = models.ForeignKey(Karma, null=True)
+	category = models.ForeignKey(Category, null=True)
 	
 	def __unicode__(self, request):
 		return self.model
+		
 	
+class Customer(models.Model):
+	user = models.ForeignKey(User, null=True)
+	task = models.ForeignKey(Task, null=True)
+	billing = models.ForeignKey(Billing, null=True)
+
+	def __unicode__(self, request):
+		return self.model
+		
+class Perfomer(models.Model):
+	user = models.ForeignKey(User, null=True)
+	task = models.ForeignKey(Task, null=True)
+	billing = models.ForeignKey(Billing, null=True)
+
+	def __unicode__(self, request):
+		return self.model
+		
 class Order(models.Model):
 	user = models.ForeignKey(User, null=True)
 	task = models.ForeignKey(Task, null=True)
-	status = models.IntegerField(default=0)
-	customer = models.CharField(max_length=512)
+	status = models.ForeignKey(Status, null=True)
+	customer = models.ForeignKey(Customer, null=True)
+	perfomer = models.ForeignKey(Perfomer, null=True)
 	cost = models.BigIntegerField(default=0)
 	
 	def __unicode__(self, request):
 		return self.model
+
+class Message(models.Model):
+	user = models.ForeignKey(User, null=True)
+	customer = models.ForeignKey(Customer, null=True)
+	perfomer = models.ForeignKey(Perfomer, null=True)
+	mes_room = models.CharField(max_length=512)
+	mes_body = models.CharField(max_length=512)
+	
+	def __unicode__(self, request):
+		return self.model	
+
+		
+class TaskCard(models.Model):
+	task = models.ForeignKey(Task, null=True)
+	customer = models.ForeignKey(Customer, null=True)
+	perfomer = models.ForeignKey(Perfomer, null=True)
+	cost = models.BigIntegerField(default=0)
+	
+	def __unicode__(self, request):
+		return self.model
+	
+	
+class DeviceList(models.Model):
+	user = models.ForeignKey(User, null=True)
+	device = models.ForeignKey(Device, null=True)
+	files_list = models.CharField(max_length=512)
+	files_downloaded = models.CharField(max_length=512)
+	
+	def __unicode__(self, request):
+		return self.model
+
