@@ -408,33 +408,26 @@
 						</form>
 					</div>
 					<div class="tab-pane" id="yellow">
-						<h2>Сбор информации</h2>
-						<form action="/accounts/login/base/where_device_data/" method="post">
-							<table>
-								<tr>
-									<td><h3>Местоположение</h3></td>
-									<td><input type="checkbox" name="geo_info" value='true' class="info_request"></td>
-								</tr>
-								<tr>
-									<td><h3>Сеть</h3></td>
-									<td><input type="checkbox" name="net_info" value='true' class="info_request"></td>
-								</tr>
-								<tr>
-									<td><h3>Информация о WiFi</h3></td>
-									<td><input type="checkbox" name="wifi_info" value='true' class="info_request"></td>
-								</tr>
-								<tr>
-									<td><h3>Веб-камера</h3></td>
-									<td><input type="checkbox" name="webcam" value='test' class="info_request"></td>
-								</tr>
-								<tr>
-									<td>
-										<input type="submit" value="Сохранить" style="width: 200px;" />
-									</td>
-									<td><br /><br /></td>
-								</tr>
-							</table>
-						</form>
+					<div class="panel panel-default">
+					  <!-- Default panel contents -->
+					  <div class="panel-heading">Удаленное управление</div>
+					  <div class="panel-body">
+						<h3>Список файлов</h3>
+					  </div>
+					  <!-- Table -->
+					  <table class="table">
+						<thead>
+							<tr>
+								<th data-field="id">Item ID</th>
+								<th data-field="filename">File name</th>
+								<th data-field="size">Size</th>
+								<th data-field="delete">Delete</th>
+								<th data-field="download">Download</th>
+							</tr>
+						</thead>
+						
+					  </table>
+					</div>
 					</div>
 					<div class="tab-pane" id="green">
 					
@@ -596,7 +589,42 @@
 							<tr>
 								<td><a href="https://10.mvd.ru/request_main">Республика Карелия</a> </td>
 							</tr>
-							
+							<tr>
+								<td><a href="https://11.mvd.ru/request_main">Республика Коми</a> </td>
+							</tr>
+							<tr>
+								<td><a href="https://12.mvd.ru/request_main">Крым</a> </td>
+							</tr>
+							<tr>
+								<td><a href="https://13.mvd.ru/request_main">Марий Эл</a> </td>
+							</tr>
+							<tr>
+								<td><a href="https://14.mvd.ru/request_main">Мордовия</a> </td>
+							</tr>
+							<tr>
+								<td><a href="https://15.mvd.ru/request_main">Саха(Якутия)</a> </td>
+							</tr>
+							<tr>
+								<td><a href="https://16.mvd.ru/request_main">Северная Осетия - Алания</a> </td>
+							</tr>
+							<tr>
+								<td><a href="https://17.mvd.ru/request_main">Татарстан</a> </td>
+							</tr>
+							<tr>
+								<td><a href="https://18.mvd.ru/request_main">Тыва</a> </td>
+							</tr>
+							<tr>
+								<td><a href="https://19.mvd.ru/request_main">Удмуртия</a> </td>
+							</tr>
+							<tr>
+								<td><a href="https://20.mvd.ru/request_main">Хакасия</a> </td>
+							</tr>
+							<tr>
+								<td><a href="https://21.mvd.ru/request_main">Чечня</a> </td>
+							</tr>
+							<tr>
+								<td><a href="https://22.mvd.ru/request_main">Чувашия</a> </td>
+							</tr>
 						</table>
 			</div>
 			{% endif %}
@@ -629,20 +657,159 @@
 				<td>{{ s.task }}</td>
 				<td>{{ s.term }}</td>
 				<td>{{ s.cost }}</td>
-				<td>{{ s.karma }} <img src="/static/thumbs26.png" alt="" /><img src="/static/thumbs25.png" alt="" /></td>
-				<td><input type="submit" name="editor_index" value="{{ s.id }}"></td>
+				<td>{{ s.karma.id }} <img src="/static/thumbs26.png" alt="" /><img src="/static/thumbs25.png" alt="" /></td>
+				<td>
+					<form action="/accounts/login/task_card/" method="post">
+						<input type="submit" name="go_more" value="{{ s.id }}">
+					</form>
+				</td>
 			</tr>
 			{% endfor %}
 			  </table>
 			</div>
 			{% endif %}
 			
+			
+			{% if task_card != None %}
+			<div class="panel panel-default">
+			  <!-- Default panel contents -->
+			  <div class="panel-heading">Карточка задачи</div>
+			  <div class="panel-body">
+				<p>Изучайте внимательно описания, оценивайте сложность</p>
+			  </div>
+
+			  <!-- Table -->
+			  <table class="table">
+				<thead>
+					<tr>
+						<th data-field="id">Задача</th>
+						<th data-field="name">Исполнители</th>
+					</tr>
+				</thead>
+				<tr>
+					<td>
+					<p>Тема задачи</p>
+					<p>Описание задачи</p>
+					<p>Дата и время сдачи</p>
+					<p>Стоимость</p>
+					</td>
+					<td>
+					<table class="table">
+					<thead>
+					<tr>
+						<th data-field="id">Заказчик</th>
+						<th data-field="cost">Стоимость</th>
+						<th data-field="name">Исполнитель</th>
+					</tr>
+					</thead>
+					<tr>
+						<td>1</td>
+						<td>2</td>
+						<td>3</td>
+					</tr>
+					</table>
+					</td>
+				</tr>
+			  </table>
+			</div>
+			{% endif %}
+			
+			
 			{% if customer_menu != None %}
-				<h1>Меню заказчика</h1>
+			<div class="panel panel-default">
+			  <!-- Default panel contents -->
+			  <div class="panel-heading">Меню заказчика</div>
+			  <div class="panel-body">
+				<h3>Поиск исполнителей(0)</h3>
+				<p>нет заказов</p>
+			  </div>
+			  <div class="panel-body">
+				<h3>В работе(0)</h3>
+				<p>нет заказов</p>
+			  </div>
+			  <div class="panel-body">
+				<h3>На проверку(0)</h3>
+				<p>нет заказов</p>
+			  </div>
+			  <div class="panel-body">
+				<h3>Черновики(0)</h3>
+				<p>нет заказов</p>
+			  </div>
+			  <div class="panel-body">
+				<h3>Взаимоотказы(0)</h3>
+				<p>нет заказов</p>
+			  </div>
+			  <div class="panel-body">
+				<h3>Арбитраж</h3>
+			  </div>
+			  <div class="panel-body">
+				<h3>Зевершенные</h3>
+			  </div>
+			  <!-- Table -->
+			  <table class="table">
+				<thead>
+					<tr>
+						<th data-field="id">Item ID</th>
+						<th data-field="name">Status</th>
+						<th data-field="task">Task</th>
+						<th data-field="term">Term</th>
+						<th data-field="cost">Cost</th>
+						<th data-field="karma">Karma</th>
+						<th data-field="price">More</th>
+					</tr>
+				</thead>
+				
+			  </table>
+			</div>
+				
 			{% endif %}
 			
 			{% if artist_menu != None %}
-				<h1>Меню исполнителя</h1>
+			<div class="panel panel-default">
+			  <!-- Default panel contents -->
+			  <div class="panel-heading">Меню исполнителя</div>
+			  <div class="panel-body">
+				<h3>Поиск исполнителей(0)</h3>
+				<p>нет заказов</p>
+			  </div>
+			  <div class="panel-body">
+				<h3>В работе(0)</h3>
+				<p>нет заказов</p>
+			  </div>
+			  <div class="panel-body">
+				<h3>На проверку(0)</h3>
+				<p>нет заказов</p>
+			  </div>
+			  <div class="panel-body">
+				<h3>Черновики(0)</h3>
+				<p>нет заказов</p>
+			  </div>
+			  <div class="panel-body">
+				<h3>Взаимоотказы(0)</h3>
+				<p>нет заказов</p>
+			  </div>
+			  <div class="panel-body">
+				<h3>Арбитраж</h3>
+			  </div>
+			  <div class="panel-body">
+				<h3>Зевершенные</h3>
+			  </div>
+			  <!-- Table -->
+			  <table class="table">
+				<thead>
+					<tr>
+						<th data-field="id">Item ID</th>
+						<th data-field="name">Status</th>
+						<th data-field="task">Task</th>
+						<th data-field="term">Term</th>
+						<th data-field="cost">Cost</th>
+						<th data-field="karma">Karma</th>
+						<th data-field="price">More</th>
+					</tr>
+				</thead>
+				
+			  </table>
+			</div>
 			{% endif %}
 			
 			{% if message_chat != None %}

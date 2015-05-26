@@ -441,7 +441,16 @@ def artist_menu(request):
 		return render_to_response("usermodule.html", {'artist_menu': artist_menu})
 	else:
 		return render_to_response("usermodule.html")
+
+#-------------------------Карточка-задачи-------------------------------
 		
+def task_card(request):
+	if (if_user_session(request.session['you_session'])):
+		task_card = 'Сохранение в задачи в базу данных'
+		return render_to_response("usermodule.html", {'task_card': task_card})
+	else:
+		return render_to_response("usermodule.html")		
+
 #------------------------Сообщения-Чат----------------------------------
 
 def message_chat(request):
