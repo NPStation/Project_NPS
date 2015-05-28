@@ -64,7 +64,12 @@ def if_device_having(user_id_tmp):
     else:
         return False
 
+def api_documentation(request):
+    return render_to_response("api_v_1.html")
 
+
+def registration_page(request):
+    return render_to_response("login.html")
 #---------------------------------------------------------------------------------------------------------
 
 def login(request):

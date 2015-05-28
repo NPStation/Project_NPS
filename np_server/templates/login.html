@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Never Paranoid Station</title>
+		<link href="/static/styles/stylish-portfolio.css" rel="stylesheet">
+		<link href='http://fonts.googleapis.com/css?family=Roboto&subset=latin,cyrillic-ext' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="/static/styles/bootstrap.min.css"/>
+		<link rel="stylesheet" href="/static/styles/bootstrap-social.css"/>
+		<link rel="stylesheet" href="/static/styles/bootstrap.css"/>
+		<link rel="stylesheet" href="/static/styles/bootstrap-theme.min.css"/>
+		<link href="http://bootstrap-ru.com/204/assets/css/bootstrap-responsive.css" rel="stylesheet">
+		<style type="text/css">
+			body{
+			background-image: url(/static/images/325.jpg);
+			-moz-background-size: 100%;
+			-webkit-background-size: 100%;
+			-o-background-size: 100%;
+			background-size: 100%; 
+			padding-top:60px;
+			padding-bottom:40px;
+			background-repeat:no-repeat;
+			background-attachment:fixed;
+			}
+			.sidebar-nav{padding:9px 0;}
+		</style>
+
+	</head>
+<body>
+<center>
+<div class="one_half last">
+	  <div class="column_content" id="reg_form">
+
+		<br><p>
+		<form action="/registration/" method="post" name="register" id="register_form" >
+		<table width="78%">
+			<tr>
+				<td><h3>Регистрация NPStation</h3><br /></td>
+			</tr>
+			<tr>
+				<td>
+				<label for="username">Логин:</label>
+				<input type="text" name="username" value="" id="username">
+				</td>
+			</tr>
+			<tr>
+				<td>
+				<label for="name">Имя:</label>
+				<input type="text" name="name" value="" id="name">
+				</td>
+			</tr>
+			<tr><td>
+			<label for="email">E-mail:</label>
+			<input type="text" name="email" value="" id="email">
+			</td></tr>
+			<tr><td>
+			<label for="password">Пароль:</label>
+			<input type="password" name="password" value="" id="password">
+			</td></tr>
+			<tr><td>
+			<label for="password2">Повтор пароля:</label>
+			<input type="password" name="password2" value="" id="password2" class="required">
+			</td></tr>
+			<tr><td>
+			<input type="submit" value="Регистрация" />
+			<input type="reset" name="reset" value="Очистить">
+			<input type="hidden" name="next" value="{{ next|escape }}" />
+			</td></tr>
+		</table>
+		</form>
+		</p>
+	  </div>
+	</div>
+</center>
+</body>
+</html>
