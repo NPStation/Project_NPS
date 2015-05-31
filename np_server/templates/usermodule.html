@@ -95,7 +95,7 @@
 		<div class="span3">
 		<div class="well sidebar-nav">
 			<ul class="nav nav-list">
-				<li class="nav-header">Device List</li>
+				<li class="nav-header">Меню</li>
 				
 			<div class="panel-group" id="accordion">
 			  <div class="panel panel-default">
@@ -133,8 +133,8 @@
 					<form action="/accounts/login/artist_menu/" method="post">
 						<li><input type="submit" name="task" value="Исполнитель" class="link"></input></li>
 					</form>
-					<form action="/accounts/login/message_chat/" method="post">
-						<li><input type="submit" name="task" value="Сообщения/Чат" class="link"></input></li>
+					<form action="/accounts/login/message_list/" method="post">
+						<li><input type="submit" name="task" value="Сообщения +1" class="link"></input></li>
 					</form>
 					<form action="/accounts/login/task_manager_input_first/" method="post">
 						<li><input type="submit" name="task" value="Дать задание" class="link"></input></li>
@@ -488,6 +488,101 @@
 			
 			{% endif %}
 			
+			{% if message_list != None %}
+			<div class="panel panel-default">
+			  <!-- Default panel contents -->
+
+			  <!-- Table -->
+			  <table class="table">
+				<thead>
+					<tr>
+						<th data-field="id">
+						<p>Дата и время последнего сообщения</p>
+						</th>
+						<th data-field="name">Первая строка сообщения до 256 знаков</th>
+						<th data-field="task">Удалить диалог(х)</th>
+					</tr>
+				</thead>
+			<tr class="info">
+			<form action="/accounts/login/message_chat/1/" method="post">
+				<td>
+					<p>Никнейм</p>
+					<p>В сети</p>
+					<p>10.07.15 10 минут назад</p>
+				</td>
+				<td>Здравствуйте! Готов взяться за работу сейчас!</td>
+				<td>Удалить</td>
+			</form>
+			</tr>
+			<tr class="info">
+			<form action="/accounts/login/message_chat/2/" method="post" >
+				<td>
+					<p>Никнейм</p>
+					<p>В сети</p>
+					<p>08.06.15 12:30</p>
+				</td>
+				<td>Работаем. Сделаю быстро и качественно! Примеры работ.</td>
+				<td>Удалить</td>
+			</form>
+			</tr>
+			  </table>
+			</div>
+			{% endif %}
+			
+			{% if message_chat != None %}
+			<div class="panel panel-default">
+			  <!-- Default panel contents -->
+			  <!-- Table -->
+			  <table class="table">
+				<thead>
+					<tr>
+						<th data-field="id" colspan="2"><h1>Диалоги</h1></th>
+					</tr>
+				</thead>
+				<tr>
+						<td><p>Имя(nickname) отправителя</p></td>
+						<td colspan="6">
+							<p>Вывод сообщения</p>
+						</td>
+						<td><p>Время отправки</p></td>
+				</tr>
+				<tr>
+						<td><p>Имя(nickname) отправителя</p></td>
+						<td colspan="6">
+							<p>Вывод сообщения</p>
+						</td>
+						<td><p>Время отправки</p></td>
+				</tr>
+				<tr>
+						<td><p>Имя(nickname) отправителя</p></td>
+						<td colspan="6">
+							<p>Вывод сообщения</p>
+						</td>
+						<td><p>Время отправки</p></td>
+				</tr>
+				<tr>
+						<td><p>Имя(nickname) отправителя</p></td>
+						<td colspan="6">
+							<p>Вывод сообщения</p>
+						</td>
+						<td><p>Время отправки</p></td>
+				</tr>
+				<form action="/accounts/login/message_id/" method="post">
+				<tr>
+						<td><p>Имя(nickname) отправителя</p></td>
+						<td colspan="6" width="80%"><textarea class="form-control" rows="3"></textarea></td>
+						<td><p>Имя(nickname) получателя</p></td>
+				</tr>
+				<tr>
+						<td></td>
+						<td colspan="6"><input type="submit" value="Отправить" /></td>
+						<td></td>
+				</tr>
+				</form>
+			 </table>
+			</div>
+			{% endif %}
+			
 			{% if task_input != None %}
 
 			<div class="panel panel-default">
@@ -652,28 +747,28 @@
 			  <table class="table">
 				<thead>
 					<tr>
-						<th data-field="id">Item ID</th>
-						<th data-field="name">Status</th>
-						<th data-field="task">Task</th>
-						<th data-field="term">Term</th>
-						<th data-field="cost">Cost</th>
-						<th data-field="karma">Karma</th>
-						<th data-field="price">More</th>
+						<th data-field="id">Индекс</th>
+						<th data-field="name">Статус</th>
+						<th data-field="task">Задача</th>
+						<th data-field="term">Время и дата сдачи</th>
+						<th data-field="cost">Стоимость</th>
+						<th data-field="karma">Карма</th>
+						<th data-field="price">Торговля</th>
 					</tr>
 				</thead>
 			{% for s in  tmp_task %}
-			<tr>
-				<td>{{ s.id }}</td>
-				<td>{{ s.status }}</td>
-				<td>{{ s.task }}</td>
-				<td>{{ s.term }}</td>
-				<td>{{ s.cost }}</td>
-				<td>{{ s.karma.id }} <img src="/static/thumbs26.png" alt="" /><img src="/static/thumbs25.png" alt="" /></td>
-				<td>
-					<form action="/accounts/login/task_card/" method="post">
-						<input type="submit" name="go_more" value="{{ s.id }}">
-					</form>
-				</td>
+			<tr class="info">
+				<form action="/accounts/login/task_card/" method="post">
+					<td>{{ s.id }} <input type="hidden" name="task_id" value="{{ s.id }}" /></td>
+					<td>{{ s.status }}</td>
+					<td>{{ s.task }}</td>
+					<td>{{ s.term }}</td>
+					<td>{{ s.cost }} <input type="hidden" name="task_cost" value="{{ s.cost }}" /></td>
+					<td>{{ s.karma.id }}<img src="/static/thumbs26.png" alt="" /><img src="/static/thumbs25.png" alt="" /></td>
+					<td>
+						<input type="submit" name="go_more" value="Перейти к торговле">
+					</td>
+				</form>
 			</tr>
 			{% endfor %}
 			  </table>
@@ -699,10 +794,11 @@
 				</thead>
 				<tr>
 					<td>
-					<p>Тема задачи</p>
-					<p>Описание задачи</p>
-					<p>Дата и время сдачи</p>
-					<p>Стоимость</p>
+					<p>{{ task_card.theme }}</p>
+					<p>{{ task_card.task }}</p>
+					<p>{{ task_card.term }}</p>
+					<p>Начальная цена</p>
+					<p>{{ task_card.cost }} рублей</p>
 					</td>
 					<td>
 					<table class="table">
@@ -714,11 +810,53 @@
 					</tr>
 					</thead>
 					<tr>
-						<td>1</td>
-						<td>2</td>
-						<td>3</td>
+						<td>Имя(Nickname) заказчика</td>
+						<td>999 999 руб</td>
+						<td>
+							<form action="/accounts/login/artist_message/" method="post">
+								<input type="submit" name="go_more" value="Стать исполнителем">
+							</form>
+						</td>
 					</tr>
 					</table>
+					</td>
+				</tr>
+			  </table>
+			</div>
+			{% endif %}
+			
+			{% if artist_message != None %}
+			<div class="panel panel-default">
+			  <!-- Default panel contents -->
+			  <div class="panel-heading">Отправка сообщения Заказчику</div>
+			  <div class="panel-body">
+				<p>Еще раз внимательно взгляните на описания, оценивайте сложность</p>
+			  </div>
+
+			  <!-- Table -->
+			  <table class="table">
+				<thead>
+					<tr>
+						<th data-field="id">Пункты</th>
+						<th data-field="name">Конкретика</th>
+					</tr>
+				</thead>
+				<tr>
+					<td>
+					<p>Тема задачи</p>
+					<p>Описание задачи</p>
+					<p>Дата и время сдачи</p>
+					<p>Стоимость</p>
+					<p>Ваше сообщение:</p>
+					<p></p>
+					</td>
+					<td>
+					<p>Реализация алгоритма</p>
+					<p>Реализовать Алгоритм ИИ нейронного поиска устройства</p>
+					<p>10.09.2015</p>
+					<p>35000 руб</p>
+					<p><textarea class="form-control" rows="5" placeholder="Введите ваше сообщение"></textarea></p>
+					<p><input type="submit" value="Отправить" /></p>
 					</td>
 				</tr>
 			  </table>
@@ -790,7 +928,7 @@
 			  <div class="panel-body">
 				<h3>На проверку(0)</h3>
 				<p>нет заказов</p>
-			  </div>
+			  </div> 
 			  <div class="panel-body">
 				<h3>Черновики(0)</h3>
 				<p>нет заказов</p>
@@ -823,9 +961,6 @@
 			</div>
 			{% endif %}
 			
-			{% if message_chat != None %}
-				<h1>Сообщения/Чат</h1>
-			{% endif %}
 			
 			{% if error_message != None %}
 				<h1>you quit in session</h1>

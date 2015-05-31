@@ -451,10 +451,27 @@ def artist_menu(request):
 		
 def task_card(request):
 	if (if_user_session(request.session['you_session'])):
-		task_card = 'Сохранение в задачи в базу данных'
-		return render_to_response("usermodule.html", {'task_card': task_card})
+		if 'task_id' in request.POST:
+			task_card = Task.objects.get(id=request.POST['task_id'])
+			return render_to_response("usermodule.html", {'task_card': task_card})
 	else:
-		return render_to_response("usermodule.html")		
+		return render_to_response("usermodule.html")
+
+#artist_message
+def artist_message(request):
+	if (if_user_session(request.session['you_session'])):
+		artist_message = 'Сохранение в сообщения в базу данных'
+		return render_to_response("usermodule.html", {'artist_message': artist_message})
+	else:
+		return render_to_response("usermodule.html")	
+
+#message_list
+def message_list(request):
+	if (if_user_session(request.session['you_session'])):
+		message_list = 'Сохранение в сообщения в базу данных'
+		return render_to_response("usermodule.html", {'message_list': message_list})
+	else:
+		return render_to_response("usermodule.html")	
 
 #------------------------Сообщения-Чат----------------------------------
 
